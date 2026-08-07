@@ -1,0 +1,240 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+
+  html,
+  html:not(.dark) {
+    @apply bg-background text-text;
+    line-height: 1.43;
+    font-family: 'Geist', 'Geist Fallback', 'Inter', Arial, sans-serif;
+  }
+
+  html.dark {
+    @apply bg-background text-text;
+  }
+
+  body {
+    @apply bg-background text-text;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Geist', 'Geist Fallback', 'Inter', Arial, sans-serif;
+  }
+
+  *:focus-visible {
+    @apply outline-2 outline-accent outline-offset-2;
+    transition: outline 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Override VitePress default palette to match design.md tokens */
+  :root {
+    --vp-c-brand-1: #4c8a3d;
+    --vp-c-brand-2: #4c612c;
+    --vp-c-brand-3: #1a4d23;
+
+    --vp-c-bg: #0d3d15;
+    --vp-c-bg-alt: #1a4d23;
+    --vp-c-bg-elv: #1a4d23;
+    --vp-c-bg-soft: #0d3d15;
+    --vp-c-bg-mute: #1a4d23;
+
+    --vp-c-divider: #1a4d23;
+    --vp-c-divider-light: #4c612c;
+
+    --vp-c-text-1: #f5f5f5;
+    --vp-c-text-2: #a0a0a0;
+    --vp-c-text-3: #a0a0a0;
+    --vp-c-text-code: #ffffff;
+
+    --vp-c-bg-alpha-with-backdrop: #0d3d15e6;
+
+    --vp-button-brand-bg: #4c8a3d;
+    --vp-button-brand-border: #1a4d23;
+    --vp-button-brand-text: #ffffff;
+    --vp-button-brand-hover-bg: #4c612c;
+    --vp-button-brand-hover-border: #4c612c;
+    --vp-button-brand-hover-text: #ffffff;
+    --vp-button-brand-active-bg: #1a4d23;
+
+    --vp-button-alt-bg: #1a4d23;
+    --vp-button-alt-border: #4c612c;
+    --vp-button-alt-text: #f5f5f5;
+    --vp-button-alt-hover-bg: #4c612c;
+    --vp-button-alt-hover-text: #ffffff;
+    --vp-button-alt-hover-border: #4c8a3d;
+
+    --vp-button-sponsor-border: #1a4d23;
+    --vp-button-sponsor-text: #f5f5f5;
+
+    --vp-nav-height: 64px;
+    --vp-home-hero-name-color: #4c8a3d;
+    --vp-home-hero-image-background-image: linear-gradient(
+      120deg,
+      #4c8a3d 20%,
+      #0d3d15 40%,
+      #4c612c 60%,
+      #1a4d23 90%
+    );
+    --vp-home-hero-image-filter: blur(44px);
+
+    --vp-c-mute: #1a4d23;
+    --vp-custom-block-tip-border: #4c8a3d;
+    --vp-custom-block-tip-text: #f5f5f5;
+    --vp-custom-block-info-border: #4c612c;
+    --vp-custom-block-info-bg: #0d3d15;
+    --vp-custom-block-info-text: #f5f5f5;
+  }
+
+  .dark {
+    --vp-c-bg: #0d3d15;
+    --vp-c-bg-alt: #1a4d23;
+  }
+
+  /* Force VitePress layout background to inherit from body */
+  .VPNavBar,
+  .VPFooter,
+  .VPDoc,
+  .VPHome,
+  .Layout,
+  .Page {
+    background-color: transparent !important;
+  }
+
+  .VPDoc .content {
+    background: transparent !important;
+  }
+
+  /* VitePress doc bg override default white in light mode */
+  html:not(.dark) .VPDoc,
+  html:not(.dark) .content-container,
+  html:not(.dark) .content,
+  html:not(.dark) .layout,
+  html:not(.dark) .VPHome {
+    background: transparent !important;
+    color: #f5f5f5 !important;
+  }
+
+  html:not(.dark) .vitepress-markdown-body p,
+  html:not(.dark) .vitepress-markdown-body h1,
+  html:not(.dark) .vitepress-markdown-body h2,
+  html:not(.dark) .vitepress-markdown-body h3,
+  html:not(.dark) .vitepress-markdown-body h4,
+  html:not(.dark) .vitepress-markdown-body li,
+  html:not(.dark) .vitepress-markdown-body span {
+    color: #f5f5f5;
+  }
+}
+
+@layer components {
+  .wmc-container {
+    @apply mx-auto w-full max-w-7xl px-2 sm:px-3 md:px-4 lg:px-5;
+  }
+
+  .wmc-section {
+    @apply py-5 md:py-7 xl:py-8;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-4 py-3 bg-primary text-on-primary font-medium rounded-md border-2 border-border transition-all duration-base hover:translate-y-[-2px] hover:shadow-card;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-4 py-3 bg-surface text-text font-medium rounded-md border-2 border-border transition-all duration-base hover:bg-accent hover:text-on-primary;
+  }
+
+  .card {
+    @apply bg-surface rounded-lg shadow-card border-2 border-border overflow-hidden transition-all duration-base ease-brand hover:translate-y-[-4px] hover:shadow-elevated;
+  }
+
+  .card-light {
+    @apply bg-accent/40 rounded-lg shadow-card border-2 border-border overflow-hidden transition-all duration-base ease-brand hover:translate-y-[-4px] hover:shadow-elevated;
+  }
+
+  .tag-pill {
+    @apply inline-flex items-center px-3 py-1 text-xs font-medium rounded-full bg-primary/40 text-text border border-border transition-all duration-fast ease-brand cursor-pointer;
+  }
+
+  .tag-pill:hover {
+    @apply bg-accent text-on-primary border-accent;
+  }
+
+  .tag-pill.active {
+    @apply bg-primary text-on-primary border-accent;
+  }
+
+  .section-badge {
+    @apply inline-block px-3 py-1 bg-primary/50 border-2 border-border rounded-pill text-xs font-bold uppercase tracking-wider mb-4;
+  }
+
+  .hero-badge {
+    @apply inline-flex items-center gap-2 px-4 py-1.5 bg-primary/40 border-2 border-border rounded-pill text-xs font-medium mb-5 shadow-sm;
+  }
+
+  .floating-progress-chip {
+    @apply absolute bg-surface border-2 border-border rounded-xl shadow-card p-4 max-w-[240px] z-10;
+  }
+
+  .floating-status-chip {
+    @apply absolute bg-background text-on-primary border-2 border-border rounded-xl shadow-card p-3 flex items-center gap-3 z-10;
+  }
+
+  .progress-track {
+    @apply h-1.5 w-full bg-primary/50 rounded-pill overflow-hidden border border-border/50;
+  }
+
+  .progress-fill {
+    @apply h-full bg-accent rounded-pill transition-all duration-slow ease-brand;
+  }
+
+  .content-md h2 {
+    @apply font-heading font-bold text-3xl leading-tight mb-4 mt-8;
+  }
+
+  .content-md h3 {
+    @apply font-heading font-semibold text-2xl leading-tight mb-3 mt-6;
+  }
+
+  .content-md p {
+    @apply leading-relaxed mb-4 text-body text-text/90;
+  }
+}
+
+/* Page layout */
+.wmc-page {
+  min-height: calc(100vh - var(--vp-nav-height) - var(--vp-footer-height));
+}
+
+.vp-doc {
+  max-width: 100% !important;
+}
+
+.vp-doc .content-container {
+  max-width: 100% !important;
+  padding: 0 !important;
+  background: transparent !important;
+}
+
+.wide-layout .aside {
+  display: none;
+}
+
+.wide-layout .content {
+  max-width: 100% !important;
+  margin: 0 !important;
+}
+
+.wide-layout main {
+  background: transparent !important;
+}
+
+.gradient-hero {
+  background-image:
+    radial-gradient(ellipse at top right, rgba(76, 138, 61, 0.25), transparent 60%),
+    radial-gradient(ellipse at bottom left, rgba(76, 97, 44, 0.3), transparent 60%);
+}
