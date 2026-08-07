@@ -1,4 +1,6 @@
 import { defineConfig } from 'vitepress'
+import fs from 'node:fs'
+import path from 'node:path'
 
 const defaultSite = 'https://world-mangrove-center.github.io'
 const defaultBase = '/'
@@ -219,5 +221,31 @@ export default defineConfig({
     ssr: {
       noExternal: [/\.vue$/],
     },
+  },
+
+  buildEnd: async (siteConfig) => {
+    const outDir = siteConfig.outDir
+    if (!fs.existsSync(outDir)) return
+
+    const processDir = (dir: string) => {
+      const entries = fs.readdirSync(dir, { withFileTypes: true })
+      for (const entry of entries) {
+        const fullPath = path.join(dir, entry.name)
+        if (entry.isDirectory()) {
+          if (entry.name === 'assets') continue
+          processDir(fullPath)
+        } else if (entry.isFile() && entry.name.endsWith('.html')) {
+          if (entry.name === 'index.html' || entry.name === '404.html') continue
+          const fileNameNoExt = entry.name.replace(/\.html$/, '')
+          const newDir = path.join(dir, fileNameNoExt)
+          const newFilePath = path.join(newDir, 'index.html')
+          fs.mkdirSync(newDir, { recursive: true })
+          fs.copyFileSync(fullPath, newFilePath)
+          fs.unlinkSync(fullPath)
+        }
+      }
+    }
+
+    processDir(outDir)
   },
 })
