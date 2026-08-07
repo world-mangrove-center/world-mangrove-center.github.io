@@ -3,105 +3,111 @@ import { computed } from 'vue'
 import { useWithBase } from '../composables/useWithBase'
 
 interface Props {
-  badge?: string
+  badgeEvent?: string
+  badgeHighlight?: string
   title?: string
+  titleAccent?: string
   subtitle?: string
   ctaPrimary?: string
   ctaSecondary?: string
   ctaPrimaryLink?: string
   ctaSecondaryLink?: string
-  heroImage?: string
+  heroImageFront?: string
+  heroImageBack?: string
   lang?: 'en' | 'id'
+  trustedCaption?: string
+  trustBadges?: { label: string }[]
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  badge: 'Hub Bintuni • Papua, Indonesia',
-  title: 'Restoring Mangroves, Sustaining Life',
+  badgeEvent: '',
+  badgeHighlight: '',
+  title: 'Restoring Mangroves,',
+  titleAccent: 'Sustaining Life',
   subtitle:
     'An international portal and knowledge hub for mangrove forest biodiversity restoration. Leading research, conservation, and community empowerment in Bintuni Bay.',
   ctaPrimary: 'Explore Our Work',
   ctaSecondary: 'Meet the Team',
   ctaPrimaryLink: '/research-insights/',
   ctaSecondaryLink: '/team/',
-  heroImage:
-    'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Aerial%20view%20of%20vast%20lush%20green%20mangrove%20forest%20at%20golden%20hour%2C%20meandering%20rivers%20winding%20through%20dense%20vegetation%2C%20silt%20sediment%20plumes%20at%20river%20mouths%20meeting%20turquoise%20ocean%2C%20small%20fishing%20boats%20visible%2C%20Papua%20Indonesia%20landscape%2C%20hyper%20detailed%2C%20dramatic%20lighting&image_size=portrait_4_3',
+  heroImageFront:
+    'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Aerial%20view%20of%20vast%20lush%20green%20mangrove%20forest%20at%20golden%20hour%2C%20meandering%20rivers%20winding%20through%20dense%20vegetation%2C%20silt%20sediment%20plumes%20at%20river%20mouths%20meeting%20turquoise%20ocean%2C%20small%20fishing%20boats%20visible%2C%20Papua%20Indonesia%20landscape%2C%20hyper%20detailed%2C%20dramatic%20lighting&image_size=landscape_4_3',
+  heroImageBack:
+    'https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Clean%20white%20scientific%20dashboard%20UI%20showing%20mangrove%20biodiversity%20monitoring%20metrics%20and%20blue%20carbon%20charts%2C%20minimal%20design%2C%20flat%20surfaces%2C%20thin%20green%20borders%2C%20status%20badges%2C%20editorial&image_size=landscape_4_3',
   lang: 'en',
+  trustedCaption: 'They put their trust in us, as do more than 100,000 users',
+  trustBadges: () => [
+    { label: 'KEMENTERIAN LHK' },
+    { label: 'BRIN' },
+    { label: 'UNIPA' },
+    { label: 'WWF-ID' },
+    { label: 'Ramsar' },
+    { label: 'GCF' },
+  ],
 })
 
 const { withBase } = useWithBase()
-
 const primaryLink = computed(() => withBase(props.ctaPrimaryLink))
 const secondaryLink = computed(() => withBase(props.ctaSecondaryLink))
-
-const defaults = {
-  en: {
-    trustedBy: 'Trusted by',
-    communities: '8+ Indigenous Communities',
-    ramsar: {
-      title: 'Ramsar Nomination',
-      label: "Site of Int'l Importance",
-      progress: '87% Complete • Q4 2026',
-    },
-    species: {
-      title: 'Mangrove Species',
-      label: 'Documented',
-    },
-  },
-  id: {
-    trustedBy: 'Dipercaya oleh',
-    communities: '8+ Komunitas Adat',
-    ramsar: {
-      title: 'Nominasi Ramsar',
-      label: 'Situs Penting Internasional',
-      progress: '87% Selesai • Q4 2026',
-    },
-    species: {
-      title: 'Spesies Mangrove',
-      label: 'Terdokumentasi',
-    },
-  },
-}
 </script>
 
 <template>
-  <section class="relative overflow-hidden gradient-hero">
-    <div
-      class="absolute inset-0 bg-gradient-to-br from-background via-background to-accent/30"
-    ></div>
-    <div
-      class="absolute top-20 right-0 w-[600px] h-[600px] bg-accent/20 rounded-full blur-3xl -translate-y-1/3 translate-x-1/3"
-    ></div>
-    <div
-      class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-primary/20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/4"
-    ></div>
+  <section class="hero-shell">
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
 
-    <div class="wmc-container relative pt-5 pb-8 lg:pt-8 lg:pb-9">
+    <div class="wmc-container relative pt-8 md:pt-10">
+      <!-- Event pill -->
+      <div class="flex justify-start mb-8">
+        <div class="chip-event-pill">
+          <svg
+            class="w-4 h-4 text-electric-sprout"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M13 10V3L4 14h7v7l9-11h-7z"
+            />
+          </svg>
+          <span v-if="badgeEvent">{{ badgeEvent }}</span>
+          <span v-else>
+            <span v-if="lang === 'en'">
+              Hub Bintuni • Papua, Indonesia
+            </span>
+            <span v-else>
+              Hub Bintuni • Papua, Indonesia
+            </span>
+          </span>
+          <span class="t-accent" v-if="badgeHighlight">
+            · {{ badgeHighlight }}
+          </span>
+          <span class="t-accent" v-else>
+            <span v-if="lang === 'en'"> · Q4 2026 Ramsar Nomination</span>
+            <span v-else> · Nominasi Ramsar Q4 2026</span>
+          </span>
+        </div>
+      </div>
+
       <div
-        class="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 items-center"
+        class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center"
       >
         <div class="lg:col-span-7 order-2 lg:order-1">
-          <div class="hero-badge">
-            <span class="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
-            {{ badge }}
-          </div>
-
-          <h1
-            class="font-display font-extrabold text-display leading-[1.38] tracking-tight text-text mb-4"
-          >
-            {{ title }}
+          <h1 class="hero-heading mb-6">
+            {{ title }}<br />
+            <span class="t-accent">{{ titleAccent }}</span>
           </h1>
 
-          <p
-            class="font-body font-normal text-body-lg leading-relaxed text-text/85 mb-6 max-w-2xl"
-          >
-            {{ subtitle }}
-          </p>
+          <p class="hero-copy mb-8">{{ subtitle }}</p>
 
-          <div class="flex flex-wrap items-center gap-3 mb-8">
-            <a :href="primaryLink" class="btn-primary">
+          <div class="flex flex-wrap items-center gap-4 mb-12">
+            <a :href="primaryLink" class="btn-sprout">
               {{ ctaPrimary }}
               <svg
-                class="w-5 h-5 ml-2"
+                class="w-4 h-4"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -114,95 +120,54 @@ const defaults = {
                 />
               </svg>
             </a>
-            <a :href="secondaryLink" class="btn-secondary">
+            <a :href="secondaryLink" class="btn-ghost-white">
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"
+                />
+              </svg>
               {{ ctaSecondary }}
             </a>
           </div>
 
-          <div class="mt-8 grid grid-cols-3 gap-3 max-w-md">
-            <div class="flex items-center gap-3">
-              <div class="flex -space-x-2">
-                <div
-                  v-for="i in ['SN', 'BW', 'MT']"
-                  :key="i"
-                  class="w-8 h-8 rounded-full bg-accent border-2 border-background flex items-center justify-center text-[10px] font-bold text-on-primary"
-                >
-                  {{ i }}
-                </div>
-              </div>
-            </div>
-            <div class="col-span-2">
-              <p class="text-xs text-text-muted leading-tight">
-                {{ defaults[lang].trustedBy }}
-              </p>
-              <p class="font-bold text-sm">{{ defaults[lang].communities }}</p>
+          <p class="trust-caption mb-2">{{ trustedCaption }}</p>
+          <div class="trust-logos">
+            <div
+              v-for="(b, i) in trustBadges"
+              :key="i"
+              class="logo font-instrument-serif italic flex items-center justify-center text-lg"
+              style="padding: 0 12px; letter-spacing: 0.02em"
+            >
+              {{ b.label }}
             </div>
           </div>
         </div>
 
         <div class="lg:col-span-5 order-1 lg:order-2 mb-4 lg:mb-0">
-          <div class="relative">
-            <div
-              class="aspect-[4/5] rounded-xl border-2 border-border shadow-elevated overflow-hidden bg-surface"
-            >
+          <div class="mockup-stack">
+            <div class="card-floating back">
               <img
-                :src="heroImage"
-                :alt="title"
+                :src="heroImageBack"
+                alt=""
                 class="w-full h-full object-cover"
+                style="aspect-ratio: 4 / 3"
               />
             </div>
-            <div class="floating-progress-chip -bottom-4 -left-4">
-              <div class="flex items-center gap-3 mb-2">
-                <div
-                  class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center border border-border"
-                >
-                  <svg
-                    class="w-5 h-5 text-on-primary"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    stroke-width="2.5"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <p class="font-bold text-xs text-text">
-                    {{ defaults[lang].ramsar.title }}
-                  </p>
-                  <p class="text-[10px] text-text-muted">
-                    {{ defaults[lang].ramsar.label }}
-                  </p>
-                </div>
-              </div>
-              <div class="progress-track">
-                <div class="progress-fill w-[87%]"></div>
-              </div>
-              <p class="text-[10px] text-text-muted mt-1.5 font-medium">
-                {{ defaults[lang].ramsar.progress }}
-              </p>
-            </div>
-            <div class="floating-status-chip -top-4 -right-4">
-              <div class="flex -space-x-1">
-                <div
-                  class="w-7 h-7 rounded-full bg-accent border-2 border-background"
-                ></div>
-                <div
-                  class="w-7 h-7 rounded-full bg-primary text-on-primary border-2 border-background flex items-center justify-center text-[8px] font-bold"
-                >
-                  34
-                </div>
-              </div>
-              <div>
-                <p class="text-[10px] font-medium text-text-muted">
-                  {{ defaults[lang].species.title }}
-                </p>
-                <p class="text-xs font-bold">{{ defaults[lang].species.label }}</p>
-              </div>
+            <div class="card-floating front">
+              <img
+                :src="heroImageFront"
+                :alt="title"
+                class="w-full h-full object-cover"
+                style="aspect-ratio: 4 / 3"
+              />
             </div>
           </div>
         </div>

@@ -46,52 +46,52 @@ const defaults = {
 </script>
 
 <template>
-  <section
-    class="wmc-section bg-primary text-text relative overflow-hidden"
-  >
+  <section class="wmc-section cta-sprout relative overflow-hidden">
     <div
-      class="absolute -top-40 -right-40 w-[600px] h-[600px] bg-accent/30 rounded-full blur-3xl"
+      class="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none"
+      style="background: radial-gradient(circle, rgba(38,162,0,0.5), transparent 70%)"
     ></div>
     <div class="wmc-container relative">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-8 items-center">
-        <div>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div class="lg:col-span-7">
           <h2
-            class="font-heading font-bold text-2xl leading-none mb-4 text-on-primary"
+            class="t-display mb-5 text-carbon"
+            style="font-size: 48px; line-height: 1.05"
           >
             {{ title }}
           </h2>
-          <p
-            class="text-body-lg text-on-primary/90 leading-relaxed mb-6 max-w-xl"
-          >
+          <p class="text-subheading text-onyx-olive font-regular mb-8" style="max-width: 620px">
             {{ description }}
           </p>
           <div class="flex flex-wrap gap-3">
             <a
               href="mailto:contact@worldmangrovecenter.org"
-              class="inline-flex items-center justify-center px-4 py-3 bg-accent text-on-primary font-bold rounded-md border-2 border-border hover:bg-surface hover:text-on-primary transition-all duration-base"
+              class="btn-ghost-dark"
             >
               {{ contactLabel }}
             </a>
-            <a
-              :href="researchHref"
-              class="inline-flex items-center justify-center px-4 py-3 bg-surface text-on-primary font-bold rounded-md border-2 border-text/30 hover:border-accent transition-all duration-base"
-            >
+            <a :href="researchHref" class="btn-sprout">
               {{ researchLabel }}
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2.5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                />
+              </svg>
             </a>
           </div>
         </div>
-        <div class="grid grid-cols-2 gap-3">
-          <div
-            v-for="s in defaults[lang].stats"
-            :key="s.label"
-            class="bg-text/5 border-2 border-text/20 rounded-xl p-5 hover:border-accent/60 hover:bg-text/10 transition-colors duration-base"
-          >
-            <p
-              class="font-display font-extrabold text-4xl mb-2 text-accent leading-[1.38]"
-            >
-              {{ s.value }}
-            </p>
-            <p class="text-body text-on-primary/85">{{ s.label }}</p>
+        <div class="lg:col-span-5 grid grid-cols-2 gap-4 lg:gap-6">
+          <div v-for="s in defaults[lang].stats" :key="s.label" class="stat-dark">
+            <p class="n">{{ s.value }}</p>
+            <p class="l">{{ s.label }}</p>
           </div>
         </div>
       </div>

@@ -7,6 +7,7 @@ interface Props {
   description?: string
   ctaLabel?: string
   ctaLink?: string
+  eyebrow?: string
   lang?: 'en' | 'id'
 }
 
@@ -16,6 +17,7 @@ const props = withDefaults(defineProps<Props>(), {
     'The World Mangrove Center (Hub Bintuni) advances the science and practice of mangrove ecosystem restoration through interdisciplinary research, indigenous knowledge integration, and community-led conservation models.',
   ctaLabel: 'Meet the experts behind our work',
   ctaLink: '/team/',
+  eyebrow: 'Our Mission',
   lang: 'en',
 })
 
@@ -24,7 +26,6 @@ const ctaHref = computed(() => withBase(props.ctaLink))
 
 const defaults = {
   en: {
-    badge: 'Our Mission',
     features: [
       {
         title: 'Biodiversity Research',
@@ -57,7 +58,6 @@ const defaults = {
     ],
   },
   id: {
-    badge: 'Misi Kami',
     features: [
       {
         title: 'Penelitian Keanekaragaman Hayati',
@@ -93,27 +93,42 @@ const defaults = {
 </script>
 
 <template>
-  <section class="wmc-section bg-background relative overflow-hidden">
+  <section class="wmc-section surface-dark relative overflow-hidden">
     <div
-      class="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"
+      class="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"
+      style="background: radial-gradient(circle, rgba(38,162,0,0.25), transparent 70%)"
     ></div>
     <div class="wmc-container relative">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
         <div class="lg:col-span-5">
-          <span class="section-badge">
-            {{ defaults[lang].badge }}
+          <span class="section-eyebrow mb-5">
+            <svg
+              class="w-4 h-4 text-electric-sprout"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M13 10V3L4 14h7v7l9-11h-7z"
+              />
+            </svg>
+            {{ eyebrow }}
           </span>
           <h2
-            class="font-heading font-bold text-2xl leading-none mb-4 text-text"
+            class="t-display mb-5 text-pure-white"
+            style="font-size: 40px; line-height: 1.05"
           >
             {{ title }}
           </h2>
-          <p class="text-body-lg text-text/85 leading-relaxed mb-6">
+          <p class="text-subheading text-pale-fern font-regular mb-8">
             {{ description }}
           </p>
           <a
             :href="ctaHref"
-            class="inline-flex items-center gap-2 font-bold text-text border-b-2 border-accent pb-0.5 hover:text-accent hover:border-text transition-colors duration-base"
+            class="inline-flex items-center gap-2 font-medium text-pure-white border-b-2 border-deep-verdant pb-0.5 hover:text-electric-sprout hover:border-electric-sprout transition-colors duration-fast"
           >
             {{ ctaLabel }}
             <svg
@@ -131,22 +146,16 @@ const defaults = {
             </svg>
           </a>
         </div>
-        <div
-          class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3"
-        >
+        <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
           <div
             v-for="(f, i) in defaults[lang].features"
             :key="i"
-            :class="[
-              'card p-4 group',
-              { 'sm:translate-y-4': i === 1 || i === 3 },
-            ]"
+            class="feature-card"
+            :class="{ 'sm:translate-y-4': i === 1 || i === 3 }"
           >
-            <div
-              class="w-11 h-11 bg-accent rounded-md flex items-center justify-center mb-4 group-hover:bg-primary transition-colors duration-base border-2 border-border shrink-0"
-            >
+            <div class="feature-icon-wrap">
               <svg
-                class="w-5 h-5 text-on-primary"
+                class="w-5 h-5"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -155,14 +164,10 @@ const defaults = {
                 <path stroke-linecap="round" stroke-linejoin="round" :d="f.icon" />
               </svg>
             </div>
-            <h3
-              class="font-heading font-bold text-lg leading-none mb-3 text-text"
-            >
+            <h3 class="mb-2 text-heading-sm font-semibold text-pure-white">
               {{ f.title }}
             </h3>
-            <p class="text-body text-text/80 leading-[1.43]">
-              {{ f.description }}
-            </p>
+            <p>{{ f.description }}</p>
           </div>
         </div>
       </div>

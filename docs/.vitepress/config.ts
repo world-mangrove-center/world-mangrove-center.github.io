@@ -113,55 +113,55 @@ export default defineConfig({
       text: 'Edit this page on GitHub',
     },
 
+    nav: [
+      { text: 'Home', link: '/' },
+      {
+        text: 'Biology',
+        items: [
+          { text: 'Flora & Ecosystem', link: '/biology/flora-ecosystem' },
+          { text: 'Fauna & Aquatic Life', link: '/biology/fauna-aquatic' },
+        ],
+      },
+      { text: 'NTFP & Ecotourism', link: '/ntfp-ecotourism/' },
+      {
+        text: 'Socio-Economics',
+        items: [
+          { text: 'Culture & Heritage', link: '/socio-economics/culture' },
+          { text: 'Livelihood', link: '/socio-economics/livelihood' },
+        ],
+      },
+      { text: 'Ethnobiology', link: '/ethnobiology/' },
+      { text: 'Research & Insights', link: '/research-insights/' },
+      { text: 'Our Team', link: '/team/' },
+    ],
+
+    sidebar: {
+      '/biology/': [
+        {
+          text: 'Biology',
+          items: [
+            { text: 'Flora & Ecosystem', link: '/biology/flora-ecosystem' },
+            { text: 'Fauna & Aquatic Life', link: '/biology/fauna-aquatic' },
+          ],
+        },
+      ],
+      '/socio-economics/': [
+        {
+          text: 'Socio-Economics',
+          items: [
+            { text: 'Culture & Heritage', link: '/socio-economics/culture' },
+            { text: 'Livelihood', link: '/socio-economics/livelihood' },
+          ],
+        },
+      ],
+    },
+
     locales: {
       root: {
         label: 'English',
         lang: 'en',
         description:
           'International portal and knowledge hub for mangrove forest biodiversity restoration in Bintuni, Papua, Indonesia.',
-        themeConfig: {
-          nav: [
-            { text: 'Home', link: '/' },
-            {
-              text: 'Biology',
-              items: [
-                { text: 'Flora & Ecosystem', link: '/biology/flora-ecosystem' },
-                { text: 'Fauna & Aquatic Life', link: '/biology/fauna-aquatic' },
-              ],
-            },
-            { text: 'NTFP & Ecotourism', link: '/ntfp-ecotourism/' },
-            {
-              text: 'Socio-Economics',
-              items: [
-                { text: 'Culture & Heritage', link: '/socio-economics/culture' },
-                { text: 'Livelihood', link: '/socio-economics/livelihood' },
-              ],
-            },
-            { text: 'Ethnobiology', link: '/ethnobiology/' },
-            { text: 'Research & Insights', link: '/research-insights/' },
-            { text: 'Our Team', link: '/team/' },
-          ],
-          sidebar: {
-            '/biology/': [
-              {
-                text: 'Biology',
-                items: [
-                  { text: 'Flora & Ecosystem', link: '/biology/flora-ecosystem' },
-                  { text: 'Fauna & Aquatic Life', link: '/biology/fauna-aquatic' },
-                ],
-              },
-            ],
-            '/socio-economics/': [
-              {
-                text: 'Socio-Economics',
-                items: [
-                  { text: 'Culture & Heritage', link: '/socio-economics/culture' },
-                  { text: 'Livelihood', link: '/socio-economics/livelihood' },
-                ],
-              },
-            ],
-          },
-        },
       },
 
       id: {
@@ -170,9 +170,29 @@ export default defineConfig({
         link: '/id/',
         description:
           'Portal internasional dan pusat pengetahuan untuk restorasi keanekaragaman hayati hutan mangrove di Bintuni, Papua, Indonesia.',
-        themeConfig: {
-          nav: [
-            { text: 'Beranda', link: '/id/' },
+        nav: [
+          { text: 'Beranda', link: '/id/' },
+          {
+            text: 'Biologi',
+            items: [
+              { text: 'Flora & Ekosistem', link: '/id/biology/flora-ecosystem' },
+              { text: 'Fauna & Kehidupan Akuatik', link: '/id/biology/fauna-aquatic' },
+            ],
+          },
+          { text: 'HHBK & Ekowisata', link: '/id/ntfp-ecotourism/' },
+          {
+            text: 'Sosio-Ekonomi',
+            items: [
+              { text: 'Budaya & Warisan', link: '/id/socio-economics/culture' },
+              { text: 'Mata Pencaharian', link: '/id/socio-economics/livelihood' },
+            ],
+          },
+          { text: 'Etnobiologi', link: '/id/ethnobiology/' },
+          { text: 'Riset & Wawasan', link: '/id/research-insights/' },
+          { text: 'Tim Kami', link: '/id/team/' },
+        ],
+        sidebar: {
+          '/id/biology/': [
             {
               text: 'Biologi',
               items: [
@@ -180,7 +200,8 @@ export default defineConfig({
                 { text: 'Fauna & Kehidupan Akuatik', link: '/id/biology/fauna-aquatic' },
               ],
             },
-            { text: 'HHBK & Ekowisata', link: '/id/ntfp-ecotourism/' },
+          ],
+          '/id/socio-economics/': [
             {
               text: 'Sosio-Ekonomi',
               items: [
@@ -188,30 +209,7 @@ export default defineConfig({
                 { text: 'Mata Pencaharian', link: '/id/socio-economics/livelihood' },
               ],
             },
-            { text: 'Etnobiologi', link: '/id/ethnobiology/' },
-            { text: 'Riset & Wawasan', link: '/id/research-insights/' },
-            { text: 'Tim Kami', link: '/id/team/' },
           ],
-          sidebar: {
-            '/id/biology/': [
-              {
-                text: 'Biologi',
-                items: [
-                  { text: 'Flora & Ekosistem', link: '/id/biology/flora-ecosystem' },
-                  { text: 'Fauna & Kehidupan Akuatik', link: '/id/biology/fauna-aquatic' },
-                ],
-              },
-            ],
-            '/id/socio-economics/': [
-              {
-                text: 'Sosio-Ekonomi',
-                items: [
-                  { text: 'Budaya & Warisan', link: '/id/socio-economics/culture' },
-                  { text: 'Mata Pencaharian', link: '/id/socio-economics/livelihood' },
-                ],
-              },
-            ],
-          },
         },
       },
     },

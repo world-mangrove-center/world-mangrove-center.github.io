@@ -7,6 +7,7 @@ interface Props {
   subtitle?: string
   viewAllLink?: string
   viewAllLabel?: string
+  eyebrow?: string
   lang?: 'en' | 'id'
 }
 
@@ -16,6 +17,7 @@ const props = withDefaults(defineProps<Props>(), {
     'Dive into the interdisciplinary dimensions of mangrove conservation.',
   viewAllLink: '/research-insights/',
   viewAllLabel: 'View All',
+  eyebrow: 'Knowledge Hub',
   lang: 'en',
 })
 
@@ -28,7 +30,6 @@ const cardsWithBase = computed(() =>
 
 const defaults = {
   en: {
-    badge: 'Knowledge Hub',
     categoryLabels: [
       'Biology',
       'Biology',
@@ -95,7 +96,6 @@ const defaults = {
     ],
   },
   id: {
-    badge: 'Pusat Pengetahuan',
     categoryLabels: [
       'Biologi',
       'Biologi',
@@ -162,41 +162,48 @@ const defaults = {
     ],
   },
 }
-
-const bgClasses = [
-  'bg-primary/60',
-  'bg-accent/60',
-  'bg-surface',
-  'bg-primary/60',
-  'bg-accent/60',
-  'bg-surface',
-]
 </script>
 
 <template>
-  <section class="wmc-section bg-background">
+  <section class="wmc-section surface-bone relative">
     <div class="wmc-container">
       <div
-        class="flex flex-col md:flex-row md:items-end md:justify-between gap-5 mb-7"
+        class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10 md:mb-12"
       >
         <div class="max-w-2xl">
-          <span class="section-badge">
-            {{ defaults[lang].badge }}
+          <span class="section-eyebrow mb-5">
+            <svg
+              class="w-4 h-4 text-electric-sprout"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+              />
+            </svg>
+            {{ eyebrow }}
           </span>
           <h2
-            class="font-heading font-bold text-2xl leading-none mb-3 text-text"
+            class="t-display mb-4 text-carbon"
+            style="font-size: 40px; line-height: 1.05"
           >
             {{ title }}
           </h2>
-          <p class="text-body text-text-muted">{{ subtitle }}</p>
+          <p class="text-subheading text-moss-shadow font-regular">
+            {{ subtitle }}
+          </p>
         </div>
         <a
           :href="viewAllHref"
-          class="btn-secondary shrink-0 self-start md:self-auto"
+          class="btn-ghost-dark shrink-0 self-start md:self-auto"
         >
           {{ viewAllLabel }}
           <svg
-            class="w-4 h-4 ml-2"
+            class="w-4 h-4"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -211,44 +218,29 @@ const bgClasses = [
         </a>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
         <a
           v-for="(c, i) in cardsWithBase"
           :key="i"
           :href="c.link"
-          class="card group block overflow-hidden"
+          class="explore-card"
         >
-          <div
-            class="aspect-[16/10] bg-primary/30 overflow-hidden border-b-2 border-border relative"
-          >
+          <div class="cover">
             <img
               :src="c.image"
               :alt="c.title"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-slow"
+              loading="lazy"
             />
-            <div class="absolute top-2 left-2">
-              <span
-                :class="[
-                  bgClasses[i],
-                  'px-3 py-1 text-[10px] font-bold uppercase tracking-wider rounded-pill border-2 border-border text-text',
-                ]"
-              >
+            <div class="absolute top-4 left-4">
+              <span class="tag">
                 {{ defaults[lang].categoryLabels[i] }}
               </span>
             </div>
           </div>
-          <div class="p-4">
-            <h3
-              class="font-heading font-bold text-lg leading-none mb-3 group-hover:text-text transition-colors duration-fast"
-            >
-              {{ c.title }}
-            </h3>
-            <p class="text-body text-text/80 leading-[1.43] mb-4">
-              {{ c.description }}
-            </p>
-            <div
-              class="flex items-center gap-2 font-bold text-sm text-on-primary bg-primary inline-flex px-3 py-1 rounded-md group-hover:gap-3 transition-all duration-base"
-            >
+          <div class="body">
+            <h3>{{ c.title }}</h3>
+            <p>{{ c.description }}</p>
+            <span class="link-row">
               {{ c.linkText }}
               <svg
                 class="w-4 h-4"
@@ -263,7 +255,7 @@ const bgClasses = [
                   d="M17 8l4 4m0 0l-4 4m4-4H3"
                 />
               </svg>
-            </div>
+            </span>
           </div>
         </a>
       </div>
