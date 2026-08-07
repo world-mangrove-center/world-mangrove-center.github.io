@@ -30,19 +30,31 @@ const isWideLayout = computed(
     frontmatter.value.wide === true,
 )
 
-const isIndonesian = computed(() => route.path.startsWith('/id/'))
+const isIndonesian = computed(() => route.path.startsWith('/id/') || route.path === '/id')
 
-const switcherLabel = computed(() => (isIndonesian.value ? 'Indonesia' : 'English'))
+const switcherLabel = computed(() => (isIndonesian.value ? 'English' : 'Indonesia'))
 
 const oppositeHref = computed(() => {
-  const p = route.path
-  const base = site.value.base || '/'
-  const cleaned = base && base !== '/' && p.startsWith(base) ? p.slice(base.length) : p
+  const b = (site.value.base && site.value.base !== '/') ? site.value.base.replace(/\/$/, '') : ''
+  let raw = route.path || '/'
+  if (b && raw.startsWith(b + '/')) raw = raw.slice(b.length)
+  else if (b && raw === b) raw = '/'
+
+  const withTrailingSlash = (s: string) => {
+    if (!s) return '/'
+    if (s.includes('.')) return s
+    return s.endsWith('/') ? s : s + '/'
+  }
+
   if (isIndonesian.value) {
-    return base + cleaned.replace(/^\/id/, '') || base + '/'
+    const stripped = raw.replace(/^\/id(?:\/|$)/, '/')
+    const out = stripped === '' || stripped === '/id' ? '/' : stripped.replace(/^\/+/, '/')
+    const cleanOut = out.startsWith('/') ? out : '/' + out
+    return withTrailingSlash((b || '') + cleanOut)
   } else {
-    const noSlash = cleaned.replace(/^\//, '')
-    return base + '/id/' + noSlash
+    if (raw === '/' || raw === '') return withTrailingSlash((b || '') + '/id/')
+    const body = raw.replace(/^\/+/, '')
+    return withTrailingSlash((b || '') + '/id/' + body)
   }
 })
 </script>

@@ -358,9 +358,14 @@
     position: relative;
     background-color: #122314;
     color: #ffffff;
-    overflow: hidden;
+    overflow-x: hidden;
     padding-top: 32px;
-    padding-bottom: 96px;
+    padding-bottom: 140px;
+  }
+  @media (max-width: 767px) {
+    .hero-shell {
+      padding-bottom: 100px;
+    }
   }
 
   .hero-orb {
@@ -710,12 +715,13 @@
   .mockup-stack {
     position: relative;
     width: 100%;
+    padding: 32px 0 56px 0;
   }
   .mockup-stack .back {
     position: absolute;
     width: 85%;
     right: 0;
-    top: 24px;
+    top: 48px;
     transform: rotate(6deg);
     opacity: 0.85;
     filter: saturate(0.9) brightness(0.95);
@@ -1196,6 +1202,32 @@ button.VPSwitchAppearance {
   overflow: hidden !important;
   visibility: hidden !important;
   position: absolute !important;
+}
+
+/* --- Hide search bar / DocSearch completely from nav pill --- */
+.VPNavBarSearch,
+.VPNavBar .VPNavBarSearch,
+.VPNavBar .DocSearch-Button,
+.DocSearch-Button,
+.VPNavBar button[aria-label="Search"],
+.VPNavBar button[aria-label="search"],
+.VPNavBar .content-body > .VPNavBarSearch,
+.VPNavBar .search-button,
+.DocSearch {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+  overflow: hidden !important;
+  visibility: hidden !important;
+  position: absolute !important;
+  flex: 0 !important;
+  max-width: 0 !important;
+  min-width: 0 !important;
 }
 
 /* --- Flyout / dropdown menu items --- */

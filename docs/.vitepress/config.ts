@@ -79,10 +79,6 @@ export default defineConfig({
   themeConfig: {
     logo: '/favicon.svg',
 
-    search: {
-      provider: 'local',
-    },
-
     footer: {
       message:
         '© 2026 World Mangrove Center. International knowledge hub for mangrove forest biodiversity restoration in Bintuni, Papua, Indonesia.',
