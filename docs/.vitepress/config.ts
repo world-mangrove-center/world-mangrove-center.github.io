@@ -83,11 +83,6 @@ export default defineConfig({
       provider: 'local',
     },
 
-    socialLinks: [
-      { icon: 'github', link: 'https://github.com/world-mangrove-center' },
-      { icon: 'twitter', link: 'https://twitter.com/' },
-    ],
-
     footer: {
       message:
         '© 2026 World Mangrove Center. International knowledge hub for mangrove forest biodiversity restoration in Bintuni, Papua, Indonesia.',
@@ -105,7 +100,6 @@ export default defineConfig({
     },
 
     returnToTopLabel: 'Back to top',
-    darkModeSwitchLabel: 'Appearance',
     sidebarMenuLabel: 'Menu',
 
     editLink: {
@@ -114,7 +108,6 @@ export default defineConfig({
     },
 
     nav: [
-      { text: 'Home', link: '/' },
       {
         text: 'Biology',
         items: [
@@ -160,6 +153,7 @@ export default defineConfig({
       root: {
         label: 'English',
         lang: 'en',
+        link: '/',
         description:
           'International portal and knowledge hub for mangrove forest biodiversity restoration in Bintuni, Papua, Indonesia.',
       },
@@ -171,7 +165,6 @@ export default defineConfig({
         description:
           'Portal internasional dan pusat pengetahuan untuk restorasi keanekaragaman hayati hutan mangrove di Bintuni, Papua, Indonesia.',
         nav: [
-          { text: 'Beranda', link: '/id/' },
           {
             text: 'Biologi',
             items: [

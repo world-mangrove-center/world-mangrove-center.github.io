@@ -46,7 +46,7 @@ const defaults = {
 </script>
 
 <template>
-  <section class="wmc-section cta-sprout relative overflow-hidden">
+  <section class="wmc-section cta-sprout relative overflow-x-hidden">
     <div
       class="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-3xl -translate-y-1/2 translate-x-1/3 pointer-events-none"
       style="background: radial-gradient(circle, rgba(38,162,0,0.5), transparent 70%)"

@@ -149,7 +149,7 @@
   }
 
   .wmc-section {
-    @apply py-10 md:py-12 lg:py-[100px] xl:py-[120px];
+    @apply py-12 md:py-16 lg:py-[120px] xl:py-[140px];
   }
 
   /* ---------- Colors: dark canvas (#122314) / pure white (#ffffff) alternating ---------- */
@@ -1047,10 +1047,155 @@ a.VPNavBarMenuLink,
   color: #ffffff !important;
 }
 
-/* --- Language / locale switcher text --- */
+/* --- Language / locale switcher text & dropdown --- */
 .VPNavBar .VPNavBarLanguageMenu .label,
-.VPNavBar .cur-lang {
+.VPNavBar .cur-lang,
+.VPLocaleMenu .label,
+.VPNavBarExtra .VPLanguageMenu button,
+.VPLocaleSwitch button,
+.VPLocaleSwitch .label {
   color: #ffffff !important;
+}
+.VPLocaleMenu .text,
+.VPLocaleMenu .label-text,
+.VPNavBarExtra button[aria-label*="language" i],
+.VPNavBarExtra button[aria-label*="locale" i],
+.VPNavBarExtra button[aria-label*="Language" i],
+.VPNavBarExtra button[aria-label*="Change language" i] {
+  color: #ffffff !important;
+}
+.VPNavBarLanguageMenu button span.label,
+.VPLocaleSwitch button span.text {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+/* --- Custom manual WMC locale switcher (injected via #nav-content-post slot) --- */
+.VPNavBar .wmc-locale-switcher,
+.VPNavBar .content-body .wmc-locale-switcher,
+.VPNavBar .content .wmc-locale-switcher,
+body .VPNavBar .wmc-locale-switcher {
+  display: inline-flex !important;
+  align-items: center !important;
+  margin-left: 4px !important;
+  margin-right: 4px !important;
+  order: 999 !important;
+}
+.VPNavBar .wmc-locale-btn,
+body .VPNavBar .wmc-locale-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  padding: 6px 12px !important;
+  height: 36px !important;
+  min-width: 104px !important;
+  border-radius: 9999px !important;
+  border: 1px solid rgba(255, 255, 255, 0.28) !important;
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  color: #ffffff !important;
+  font-family: 'Aeonik', 'Inter', ui-sans-serif, system-ui, sans-serif !important;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+  line-height: 1 !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-sizing: border-box !important;
+  white-space: nowrap !important;
+}
+.VPNavBar .wmc-locale-btn:hover,
+body .VPNavBar .wmc-locale-btn:hover {
+  color: #122314 !important;
+  background-color: #68ef3f !important;
+  border-color: #68ef3f !important;
+  text-decoration: none !important;
+  transform: translateY(-1px) !important;
+}
+.VPNavBar .wmc-locale-btn .wmc-locale-ic,
+.VPNavBar .wmc-locale-btn .wmc-locale-caret {
+  width: 16px !important;
+  height: 16px !important;
+  flex: 0 0 16px !important;
+  color: inherit !important;
+  stroke: currentColor !important;
+  fill: none !important;
+}
+.VPNavBar .wmc-locale-btn .wmc-locale-txt {
+  color: inherit !important;
+  opacity: 1 !important;
+  letter-spacing: 0.01em !important;
+}
+
+@media (max-width: 767px) {
+  .VPNavBar .wmc-locale-btn,
+  body .VPNavBar .wmc-locale-btn {
+    min-width: 72px !important;
+    padding: 4px 8px !important;
+    height: 32px !important;
+    font-size: 12px !important;
+    gap: 3px !important;
+  }
+  .VPNavBar .wmc-locale-btn .wmc-locale-ic {
+    display: none !important;
+  }
+}
+
+/* --- Hide light/dark appearance toggle COMPLETELY (replace with language switch) --- */
+.VPNavBarAppearance,
+.VPNavBar .VPNavBarAppearance,
+.VPNavBarExtra .icon-btn.appearance-btn,
+.VPNavBar button[aria-label*="appearance" i],
+.VPNavBar button[aria-label*="dark" i],
+.VPNavBar button[aria-label*="light" i],
+.VPNavBar button[aria-label*="theme" i],
+.VPNavBar .VPNavBarExtra > button:nth-child(2 of .icon-btn),
+.icon-btn[data-testid="appearance-toggle"],
+button.VPSwitchAppearance {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+  overflow: hidden !important;
+  visibility: hidden !important;
+  position: absolute !important;
+}
+
+/* --- Hide "extra navigation" (3-dot/overflow) button on DESKTOP only --- */
+@media (min-width: 960px) {
+  .VPNavBar button[aria-label="extra navigation"],
+  .VPNavBar .VPNavBarExtra button[aria-label="extra navigation"] {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+}
+
+/* --- Hide github / twitter social links icons --- */
+.VPSocialLink,
+.VPNavBar .VPSocialLink,
+.VPNavBarExtra .VPSocialLink,
+.VPNavBar .VPNavBarExtra a[href*="github.com"],
+.VPNavBar .VPNavBarExtra a[href*="twitter.com"],
+.VPNavBar .VPNavBarExtra a[href*="x.com"],
+.social-links {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+  overflow: hidden !important;
+  visibility: hidden !important;
+  position: absolute !important;
 }
 
 /* --- Flyout / dropdown menu items --- */
