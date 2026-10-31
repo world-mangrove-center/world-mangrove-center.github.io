@@ -425,8 +425,8 @@
       "categoryKey": "ecotourism",
       "nameEn": "Birdwatching Point",
       "nameId": "Titik Pengamatan Burung",
-      "descriptionEn": "Viewing platform for milky stork and migratory shorebirds at low tide. (Sample data — illustrative location.)",
-      "descriptionId": "Menara pengamatan bangau susu dan burung pantai migran saat surut. (Data contoh — lokasi ilustratif.)",
+      "descriptionEn": "Viewing platform for herons, kingfishers and migratory shorebirds such as Whimbrel, best around low tide. (Sample data — illustrative location.)",
+      "descriptionId": "Menara pengamatan untuk cangak, raja-udang, dan burung pantai migran seperti Gajahan Pengala, paling baik saat air surut. (Data contoh — lokasi ilustratif.)",
       "geometry": {
         "type": "Point",
         "coordinates": [

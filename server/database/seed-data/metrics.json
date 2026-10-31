@@ -1,10 +1,82 @@
 [
-  { "key": "hectares_restored", "group": "impact", "valueEn": "12,500+", "valueId": "12.500+", "labelEn": "Hectares of Mangrove Restored", "labelId": "Hektar Mangrove Direhabilitasi", "icon": "M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4", "sortOrder": 10 },
-  { "key": "species_documented", "group": "impact", "valueEn": "34", "valueId": "34", "labelEn": "Species of Mangrove Documented", "labelId": "Spesies Mangrove Terdokumentasi", "icon": "M12 2C8 8 5 12 5 16c0 3.5 3 6 7 6s7-2.5 7-6c0-4-3-8-7-14z", "sortOrder": 20 },
-  { "key": "communities_partnered", "group": "impact", "valueEn": "8", "valueId": "8", "labelEn": "Indigenous Communities Partnered", "labelId": "Komunitas Adat Bermitra", "icon": "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z", "sortOrder": 30 },
-  { "key": "research_publications", "group": "impact", "valueEn": "47", "valueId": "47", "labelEn": "Research Publications", "labelId": "Publikasi Penelitian", "icon": "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253", "sortOrder": 40 },
-  { "key": "research_partners", "group": "partners", "valueEn": "23+", "valueId": "23+", "labelEn": "Research Partners", "labelId": "Mitra Riset", "icon": null, "sortOrder": 10 },
-  { "key": "grants_donors", "group": "partners", "valueEn": "12", "valueId": "12", "labelEn": "Grant & Donors", "labelId": "Hibah & Donor", "icon": null, "sortOrder": 20 },
-  { "key": "gov_agencies", "group": "partners", "valueEn": "5", "valueId": "5", "labelEn": "Gov't Agencies", "labelId": "Instansi Pemerintah", "icon": null, "sortOrder": 30 },
-  { "key": "community_orgs", "group": "partners", "valueEn": "18", "valueId": "18", "labelEn": "Community Orgs", "labelId": "Organisasi Masyarakat", "icon": null, "sortOrder": 40 }
+  {
+    "key": "hectares_restored",
+    "group": "impact",
+    "valueEn": "12,500+",
+    "valueId": "12.500+",
+    "labelEn": "Hectares of Mangrove Restored",
+    "labelId": "Hektar Mangrove Direhabilitasi",
+    "icon": "M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4",
+    "sortOrder": 10
+  },
+  {
+    "key": "species_documented",
+    "group": "impact",
+    "valueEn": "30",
+    "valueId": "30",
+    "labelEn": "True Mangrove Species Recorded",
+    "labelId": "Spesies Mangrove Sejati Tercatat",
+    "icon": "M12 2C8 8 5 12 5 16c0 3.5 3 6 7 6s7-2.5 7-6c0-4-3-8-7-14z",
+    "sortOrder": 20
+  },
+  {
+    "key": "communities_partnered",
+    "group": "impact",
+    "valueEn": "8",
+    "valueId": "8",
+    "labelEn": "Indigenous Communities Partnered",
+    "labelId": "Komunitas Adat Bermitra",
+    "icon": "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z",
+    "sortOrder": 30
+  },
+  {
+    "key": "research_publications",
+    "group": "impact",
+    "valueEn": "47",
+    "valueId": "47",
+    "labelEn": "Research Publications",
+    "labelId": "Publikasi Penelitian",
+    "icon": "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253",
+    "sortOrder": 40
+  },
+  {
+    "key": "research_partners",
+    "group": "partners",
+    "valueEn": "23+",
+    "valueId": "23+",
+    "labelEn": "Research Partners",
+    "labelId": "Mitra Riset",
+    "icon": null,
+    "sortOrder": 10
+  },
+  {
+    "key": "grants_donors",
+    "group": "partners",
+    "valueEn": "12",
+    "valueId": "12",
+    "labelEn": "Grant & Donors",
+    "labelId": "Hibah & Donor",
+    "icon": null,
+    "sortOrder": 20
+  },
+  {
+    "key": "gov_agencies",
+    "group": "partners",
+    "valueEn": "5",
+    "valueId": "5",
+    "labelEn": "Gov't Agencies",
+    "labelId": "Instansi Pemerintah",
+    "icon": null,
+    "sortOrder": 30
+  },
+  {
+    "key": "community_orgs",
+    "group": "partners",
+    "valueEn": "18",
+    "valueId": "18",
+    "labelEn": "Community Orgs",
+    "labelId": "Organisasi Masyarakat",
+    "icon": null,
+    "sortOrder": 40
+  }
 ]

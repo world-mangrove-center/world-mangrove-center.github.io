@@ -15,4 +15,8 @@ export const images = {
   culture: gen('Papuan traditional cultural ceremony dance with face paint, cassowary feather headdresses, shell ornaments, elders and youth performing at coastal village, Teluk Bintuni'),
   livelihood: gen('Papuan fishermen in traditional wooden dugout canoe on calm mangrove river, checking sustainable fishing net, early morning mist, golden sun light, dense green mangrove walls, livelihood Bintuni'),
   research: gen('Marine biologist in waders holding water sample test kit, data tablet, field notebook, in mangrove forest, measuring blue carbon sediment core, community rangers in background, research expedition Papua'),
+  faunaPage: gen('Mud crab Scylla serrata on Rhizophora mangrove prop roots at low tide, wet mud, small mudskippers nearby, natural light, West Papua estuary, documentary photo'),
+  ntfpPage: gen('Papuan women at a village cooperative table packaging brown Nypa palm sugar and mangrove fruit flour, woven noken bags hanging, wooden stilt house, mangrove background'),
+  livelihoodPage: gen('Papuan fishermen in a wooden longboat with outboard motor hauling a shrimp gillnet in a muddy brown estuary, tall mangrove forest behind, overcast morning, Bintuni Bay'),
+  ethnobiologyPage: gen('Papuan elder showing mangrove propagules and Nypa leaves to young people on a riverbank in a mangrove village, notebook in hand, warm afternoon light'),
 } as const
