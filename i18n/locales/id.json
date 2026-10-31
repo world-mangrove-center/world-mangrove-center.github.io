@@ -1,0 +1,60 @@
+{
+  "nav": {
+    "biology": "Biologi",
+    "flora": "Flora & Ekosistem",
+    "fauna": "Fauna & Kehidupan Akuatik",
+    "ntfp": "HHBK & Ekowisata",
+    "socio": "Sosio-Ekonomi",
+    "culture": "Budaya & Warisan",
+    "livelihood": "Mata Pencaharian",
+    "ethnobiology": "Etnobiologi",
+    "research": "Riset & Wawasan",
+    "team": "Tim Kami",
+    "contact": "Kontak",
+    "menu": "Menu",
+    "switchTo": "Switch to English"
+  },
+  "footer": {
+    "tagline": "Pusat pengetahuan internasional untuk restorasi keanekaragaman hayati hutan mangrove di Bintuni, Papua, Indonesia.",
+    "explore": "Jelajahi",
+    "organization": "Organisasi",
+    "rights": "Hak cipta dilindungi."
+  },
+  "common": {
+    "loading": "Memuat…",
+    "loadError": "Konten tidak dapat dimuat saat ini. Silakan coba lagi nanti.",
+    "send": "Kirim",
+    "sending": "Mengirim…",
+    "close": "Tutup",
+    "required": "Wajib diisi"
+  },
+  "contact": {
+    "title": "Hubungi kami",
+    "eyebrow": "Kontak",
+    "subtitle": "Kolaborasi riset, kemitraan pendanaan, pertanyaan media, atau program masyarakat — tim kami di Bintuni dan mancanegara akan segera membalas.",
+    "name": "Nama lengkap",
+    "email": "Email",
+    "organization": "Organisasi (opsional)",
+    "subject": "Topik",
+    "message": "Pesan",
+    "topics": {
+      "general": "Pertanyaan umum",
+      "research": "Kolaborasi riset",
+      "partnership": "Pendanaan & kemitraan",
+      "media": "Media",
+      "volunteer": "Karier & relawan"
+    },
+    "success": "Terima kasih! Pesan Anda sudah kami terima. Kami biasanya membalas dalam 3 hari kerja.",
+    "error": "Terjadi kesalahan saat mengirim pesan. Silakan coba lagi atau kirim email langsung."
+  },
+  "dataRequest": {
+    "title": "Minta akses data",
+    "intro": "Ceritakan siapa Anda dan bagaimana data akan digunakan. Permintaan ditinjau oleh tim riset kami.",
+    "institution": "Institusi",
+    "purpose": "Rencana penggunaan / tujuan riset",
+    "dataset": "Dataset atau publikasi",
+    "anyDataset": "Seluruh repositori data",
+    "success": "Permintaan Anda sudah terkirim. Kami akan menghubungi Anda melalui email setelah ditinjau.",
+    "error": "Permintaan tidak dapat dikirim. Silakan coba lagi."
+  }
+}

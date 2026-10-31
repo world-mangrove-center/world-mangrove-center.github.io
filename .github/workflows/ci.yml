@@ -1,0 +1,46 @@
+name: CI
+
+# Vercel builds & deploys every push via its GitHub integration.
+# This workflow only verifies that the app builds and migrations apply
+# against a throwaway Postgres, so broken changes are caught on pull requests.
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: wmc
+          POSTGRES_PASSWORD: wmc
+          POSTGRES_DB: wmc
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U wmc" --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      DATABASE_URL: postgres://wmc:wmc@localhost:5432/wmc
+      NUXT_APP_SECRET: ci-only-secret-not-used-in-production-000000
+      ADMIN_EMAIL: ci@example.org
+      ADMIN_PASSWORD: ci-password-123
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run db:migrate
+      - run: npm run db:seed
+      - run: npm run build
+      - name: Smoke test
+        run: |
+          node .output/server/index.mjs &
+          sleep 4
+          curl -fsS http://localhost:3000/api/health
+          curl -fsS http://localhost:3000/ > /dev/null
+          curl -fsS http://localhost:3000/id/team > /dev/null
+          test "$(curl -s -o /dev/null -w '%{http_code}' http://localhost:3000/api/admin/team)" = "401"

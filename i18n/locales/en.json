@@ -1,0 +1,60 @@
+{
+  "nav": {
+    "biology": "Biology",
+    "flora": "Flora & Ecosystem",
+    "fauna": "Fauna & Aquatic Life",
+    "ntfp": "NTFP & Ecotourism",
+    "socio": "Socio-Economics",
+    "culture": "Culture & Heritage",
+    "livelihood": "Livelihood",
+    "ethnobiology": "Ethnobiology",
+    "research": "Research & Insights",
+    "team": "Our Team",
+    "contact": "Contact",
+    "menu": "Menu",
+    "switchTo": "Beralih ke Bahasa Indonesia"
+  },
+  "footer": {
+    "tagline": "International knowledge hub for mangrove forest biodiversity restoration in Bintuni, Papua, Indonesia.",
+    "explore": "Explore",
+    "organization": "Organization",
+    "rights": "All rights reserved."
+  },
+  "common": {
+    "loading": "Loading…",
+    "loadError": "We couldn't load this content right now. Please try again later.",
+    "send": "Send",
+    "sending": "Sending…",
+    "close": "Close",
+    "required": "Required"
+  },
+  "contact": {
+    "title": "Get in touch",
+    "eyebrow": "Contact",
+    "subtitle": "Research collaborations, funding partnerships, media enquiries or community programs — our team in Bintuni and abroad will get back to you.",
+    "name": "Full name",
+    "email": "Email",
+    "organization": "Organization (optional)",
+    "subject": "Subject",
+    "message": "Message",
+    "topics": {
+      "general": "General enquiry",
+      "research": "Research collaboration",
+      "partnership": "Funding & partnership",
+      "media": "Media",
+      "volunteer": "Careers & volunteering"
+    },
+    "success": "Thank you! Your message has been received. We usually reply within 3 working days.",
+    "error": "Something went wrong while sending your message. Please try again or email us directly."
+  },
+  "dataRequest": {
+    "title": "Request data access",
+    "intro": "Tell us who you are and how you plan to use the data. Requests are reviewed by our research team.",
+    "institution": "Institution",
+    "purpose": "Intended use / research purpose",
+    "dataset": "Dataset or publication",
+    "anyDataset": "Full data repository",
+    "success": "Your request has been submitted. We will contact you by email after review.",
+    "error": "We couldn't submit your request. Please try again."
+  }
+}
