@@ -32,7 +32,7 @@ export default defineEventHandler(async (event) => {
     throw createError({
       statusCode: 500,
       statusMessage: 'Session error',
-      message: 'Session could not be created. Is NUXT_APP_SECRET set for this environment, and was the project redeployed afterwards?',
+      message: 'Session could not be created. NUXT_APP_SECRET must be set for this environment as text of at least 32 characters, and the project redeployed afterwards.',
     })
   }
   return { ok: true }
