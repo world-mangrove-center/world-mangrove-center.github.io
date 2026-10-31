@@ -17,7 +17,10 @@ async function login() {
     const redirect = typeof route.query.redirect === 'string' && route.query.redirect.startsWith('/admin') ? route.query.redirect : '/admin'
     await navigateTo(redirect)
   } catch (e: any) {
-    error.value = e?.statusCode === 401 ? 'Email atau kata sandi salah.' : 'Gagal masuk. Periksa koneksi database / konfigurasi server.'
+    error.value =
+      e?.statusCode === 401
+        ? 'Email atau kata sandi salah (atau akun admin belum dibuat di database ini — cek /api/health).'
+        : `Gagal masuk (${e?.statusCode ?? 'network'}): ${e?.data?.message || e?.data?.statusMessage || 'periksa konfigurasi server'}. Detail: /api/health`
   } finally {
     loading.value = false
   }

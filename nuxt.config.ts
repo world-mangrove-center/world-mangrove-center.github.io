@@ -31,8 +31,9 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
-    // Server-only. Set DATABASE_URL in Vercel (Neon integration sets it automatically).
-    databaseUrl: process.env.DATABASE_URL || '',
+    // Server-only. Left empty on purpose: the DB URL is read from process.env.DATABASE_URL
+    // at runtime (see server/utils/db.ts) so it is never baked into the build output.
+    databaseUrl: '',
     // nuxt-auth-utils reads NUXT_SESSION_PASSWORD (min. 32 chars)
     session: {
       name: 'wmc-session',

@@ -7,7 +7,7 @@ let _db: Database | undefined
 
 export function useDb(): Database {
   if (!_db) {
-    const url = useRuntimeConfig().databaseUrl || process.env.DATABASE_URL || ''
+    const url = process.env.DATABASE_URL || useRuntimeConfig().databaseUrl || ''
     _db = createDb(url)
   }
   return _db
