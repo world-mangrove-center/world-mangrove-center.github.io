@@ -1,8 +1,10 @@
 import {
   boolean,
   date,
+  doublePrecision,
   index,
   integer,
+  jsonb,
   pgEnum,
   pgTable,
   serial,
@@ -145,6 +147,48 @@ export const dataRequests = pgTable(
 )
 
 /* ------------------------------------------------------------------ */
+/* Map: categories (legend) and features (GeoJSON geometries)          */
+/* ------------------------------------------------------------------ */
+export type GeoJsonGeometry =
+  | { type: 'Point'; coordinates: [number, number] }
+  | { type: 'LineString'; coordinates: [number, number][] }
+  | { type: 'Polygon'; coordinates: [number, number][][] }
+  | { type: 'MultiPolygon'; coordinates: [number, number][][][] }
+
+export const mapCategories = pgTable('map_categories', {
+  id: serial('id').primaryKey(),
+  key: varchar('key', { length: 80 }).notNull().unique(),
+  nameEn: varchar('name_en', { length: 160 }).notNull(),
+  nameId: varchar('name_id', { length: 160 }).notNull(),
+  color: varchar('color', { length: 9 }).notNull().default('#68ef3f'),
+  sortOrder: integer('sort_order').notNull().default(0),
+  visibleByDefault: boolean('visible_by_default').notNull().default(true),
+  ...timestamps,
+})
+
+export const mapFeatures = pgTable(
+  'map_features',
+  {
+    id: serial('id').primaryKey(),
+    slug: varchar('slug', { length: 160 }).notNull().unique(),
+    categoryId: integer('category_id').references(() => mapCategories.id, { onDelete: 'set null' }),
+    nameEn: varchar('name_en', { length: 200 }).notNull(),
+    nameId: varchar('name_id', { length: 200 }).notNull(),
+    descriptionEn: text('description_en').notNull().default(''),
+    descriptionId: text('description_id').notNull().default(''),
+    // GeoJSON geometry in WGS84 (lon, lat)
+    geometry: jsonb('geometry').$type<GeoJsonGeometry>().notNull(),
+    areaHa: doublePrecision('area_ha'),
+    year: integer('year'),
+    imageUrl: text('image_url'),
+    sortOrder: integer('sort_order').notNull().default(0),
+    published: boolean('published').notNull().default(true),
+    ...timestamps,
+  },
+  (t) => [index('map_features_category_idx').on(t.categoryId)],
+)
+
+/* ------------------------------------------------------------------ */
 /* Admin users                                                          */
 /* ------------------------------------------------------------------ */
 export const adminUsers = pgTable('admin_users', {
@@ -161,3 +205,5 @@ export type PublicationRow = typeof publications.$inferSelect
 export type MetricRow = typeof metrics.$inferSelect
 export type ContactMessageRow = typeof contactMessages.$inferSelect
 export type DataRequestRow = typeof dataRequests.$inferSelect
+export type MapCategoryRow = typeof mapCategories.$inferSelect
+export type MapFeatureRow = typeof mapFeatures.$inferSelect

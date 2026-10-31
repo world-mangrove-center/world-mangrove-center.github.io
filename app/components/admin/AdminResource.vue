@@ -15,6 +15,8 @@ const props = defineProps<{
   searchKeys?: string[]
 }>()
 
+const emit = defineEmits<{ saved: [] }>()
+
 const { data: rows, refresh, pending, error } = await useFetch<any[]>(props.endpoint, { default: () => [], server: false })
 
 const query = ref('')
@@ -72,6 +74,7 @@ async function save() {
       await $fetch(`${props.endpoint}/${editing.value.id}`, { method: 'PUT', body })
     }
     await refresh()
+    emit('saved')
     close()
     flash('Tersimpan ✓')
   } catch (e: any) {
@@ -88,6 +91,7 @@ async function remove(row: any) {
   try {
     await $fetch(`${props.endpoint}/${row.id}`, { method: 'DELETE' })
     await refresh()
+    emit('saved')
     if (editing.value?.id === row.id) close()
     flash('Dihapus')
   } catch (e: any) {
@@ -132,6 +136,7 @@ function toggleMulti(key: string, value: string) {
             <td v-for="c in columns" :key="c.key">
               <img v-if="c.image && r[c.key]" :src="r[c.key]" alt="" class="h-10 w-10 rounded-lg object-cover" />
               <span v-else-if="c.image" class="inline-block h-10 w-10 rounded-lg bg-mist-green" />
+              <span v-else-if="c.swatch" class="inline-block h-5 w-5 rounded-full border border-mist-green" :style="{ background: r[c.key] }" />
               <template v-else>{{ c.format ? c.format(r) : r[c.key] }}</template>
             </td>
             <td class="whitespace-nowrap text-right">
@@ -154,17 +159,28 @@ function toggleMulti(key: string, value: string) {
             </button>
           </div>
           <div class="grid flex-1 grid-cols-1 gap-4 overflow-y-auto px-6 py-5 sm:grid-cols-2">
-            <div v-for="f in fields" :key="f.key" :class="{ 'sm:col-span-2': f.full || f.type === 'textarea' || f.type === 'multiselect' }">
+            <div v-for="f in fields" :key="f.key" :class="{ 'sm:col-span-2': f.full || f.type === 'textarea' || f.type === 'multiselect' || f.type === 'geometry' }">
               <label v-if="f.type !== 'checkbox'" class="field-label" :for="`f-${f.key}`">{{ f.label }}<span v-if="f.required" class="text-red-600"> *</span></label>
               <textarea v-if="f.type === 'textarea'" :id="`f-${f.key}`" v-model="editing[f.key]" class="field-input !rounded-xl !text-body" :rows="f.rows ?? 4" />
               <select v-else-if="f.type === 'select'" :id="`f-${f.key}`" v-model="editing[f.key]" class="field-input !rounded-xl !text-body">
-                <option v-for="o in f.options" :key="o.value" :value="o.value">{{ o.label }}</option>
+                <option v-for="o in f.options" :key="String(o.value)" :value="o.value">{{ o.label }}</option>
               </select>
               <div v-else-if="f.type === 'multiselect'" class="flex flex-wrap gap-2">
-                <label v-for="o in f.options" :key="o.value" class="inline-flex cursor-pointer items-center gap-2 rounded-lg border border-mist-green px-3 py-1.5 text-body" :class="{ 'border-deep-verdant bg-sprout-wash': editing[f.key]?.includes(o.value) }">
-                  <input type="checkbox" class="accent-deep-verdant" :checked="editing[f.key]?.includes(o.value)" @change="toggleMulti(f.key, o.value)" />
+                <label v-for="o in f.options" :key="String(o.value)" class="inline-flex cursor-pointer items-center gap-2 rounded-lg border border-mist-green px-3 py-1.5 text-body" :class="{ 'border-deep-verdant bg-sprout-wash': editing[f.key]?.includes(o.value) }">
+                  <input type="checkbox" class="accent-deep-verdant" :checked="editing[f.key]?.includes(o.value)" @change="toggleMulti(f.key, String(o.value))" />
                   {{ o.label }}
                 </label>
+              </div>
+              <ClientOnly v-else-if="f.type === 'geometry'">
+                <GeometryEditor
+                  v-model="editing[f.key]"
+                  :color="f.geometryColor?.(editing)"
+                  :reference="f.geometryReference?.(editing)"
+                />
+              </ClientOnly>
+              <div v-else-if="f.type === 'color'" class="flex items-center gap-2">
+                <input :id="`f-${f.key}`" v-model="editing[f.key]" type="color" class="h-10 w-14 cursor-pointer rounded-lg border border-mist-green bg-pure-white p-1" />
+                <input v-model="editing[f.key]" class="field-input !rounded-xl !py-2 !text-body font-mono" maxlength="7" />
               </div>
               <label v-else-if="f.type === 'checkbox'" class="mt-6 inline-flex cursor-pointer items-center gap-2 text-body font-medium">
                 <input :id="`f-${f.key}`" v-model="editing[f.key]" type="checkbox" class="h-4 w-4 accent-deep-verdant" />

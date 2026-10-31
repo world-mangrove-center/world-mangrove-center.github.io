@@ -128,3 +128,63 @@ export function parseId(event: Parameters<typeof getRouterParam>[0]) {
   if (!Number.isInteger(id) || id <= 0) throw createError({ statusCode: 400, statusMessage: 'Invalid id' })
   return id
 }
+
+/* ------------------------------ Map ------------------------------ */
+const lon = z.number().min(-180).max(180)
+const lat = z.number().min(-90).max(90)
+const position = z.tuple([lon, lat]).or(z.tuple([lon, lat, z.number()]).transform(([a, b]) => [a, b] as [number, number]))
+const ring = z
+  .array(position)
+  .min(4, 'A polygon ring needs at least 3 distinct points')
+  .refine((r) => r[0]![0] === r.at(-1)![0] && r[0]![1] === r.at(-1)![1], 'Polygon ring must be closed (first point = last point)')
+
+export const geometryInput = z.discriminatedUnion('type', [
+  z.object({ type: z.literal('Point'), coordinates: position }),
+  z.object({ type: z.literal('LineString'), coordinates: z.array(position).min(2, 'A line needs at least 2 points') }),
+  z.object({ type: z.literal('Polygon'), coordinates: z.array(ring).min(1) }),
+  z.object({ type: z.literal('MultiPolygon'), coordinates: z.array(z.array(ring).min(1)).min(1) }),
+])
+
+export const mapCategoryInput = z.object({
+  key: z.string().trim().min(2).max(80).regex(/^[a-z0-9_]+$/, 'Use lowercase letters, numbers and underscores'),
+  nameEn: z.string().trim().min(1).max(160),
+  nameId: z.string().trim().min(1).max(160),
+  color: z.string().trim().regex(/^#[0-9a-fA-F]{6}$/, 'Use a hex colour like #68ef3f'),
+  sortOrder: z.coerce.number().int().default(0),
+  visibleByDefault: z.boolean().default(true),
+})
+
+const optionalNumber = z
+  .union([z.number(), z.string()])
+  .transform((v) => (v === '' || v === null ? null : Number(v)))
+  .refine((v) => v === null || Number.isFinite(v), 'Must be a number')
+  .nullable()
+  .optional()
+
+export const mapFeatureInput = z.object({
+  slug: z.string().trim().min(2).max(160).regex(/^[a-z0-9-]+$/, 'Use lowercase letters, numbers and dashes'),
+  categoryId: z.preprocess((v) => (v === '' || v == null ? null : Number(v)), z.number().int().positive().nullable()).optional(),
+  nameEn: z.string().trim().min(1).max(200),
+  nameId: z.string().trim().min(1).max(200),
+  descriptionEn: z.string().trim().max(4000).default(''),
+  descriptionId: z.string().trim().max(4000).default(''),
+  geometry: z.preprocess((v) => {
+    if (typeof v !== 'string') return v
+    try {
+      const parsed = JSON.parse(v)
+      return parsed?.type === 'Feature' ? parsed.geometry : parsed
+    } catch {
+      return v
+    }
+  }, geometryInput),
+  areaHa: optionalNumber,
+  year: z
+    .union([z.number(), z.string()])
+    .transform((v) => (v === '' || v === null ? null : Number(v)))
+    .refine((v) => v === null || (Number.isInteger(v) && v > 1900 && v < 2200), 'Use a 4-digit year')
+    .nullable()
+    .optional(),
+  imageUrl: optionalUrl,
+  sortOrder: z.coerce.number().int().default(0),
+  published: z.boolean().default(true),
+})

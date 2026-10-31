@@ -9,10 +9,11 @@ import 'dotenv/config'
 import { Hash } from '@adonisjs/hash'
 import { Scrypt } from '@adonisjs/hash/drivers/scrypt'
 import { createDb, isNeonUrl } from './client'
-import { adminUsers, metrics, publications, teamMembers } from './schema'
+import { adminUsers, mapCategories, mapFeatures, metrics, publications, teamMembers } from './schema'
 import team from './seed-data/team.json'
 import pubs from './seed-data/publications.json'
 import metricRows from './seed-data/metrics.json'
+import mapData from './seed-data/map.json'
 
 const url = process.env.DATABASE_URL || ''
 
@@ -27,6 +28,14 @@ async function main() {
 
   const m = await db.insert(metrics).values(metricRows as any).onConflictDoNothing().returning({ id: metrics.id })
   console.log(`• metrics: ${m.length} inserted (${metricRows.length - m.length} already present)`)
+
+  const mc = await db.insert(mapCategories).values(mapData.categories).onConflictDoNothing().returning({ id: mapCategories.id })
+  console.log(`• map_categories: ${mc.length} inserted (${mapData.categories.length - mc.length} already present)`)
+  const catRows = await db.select({ id: mapCategories.id, key: mapCategories.key }).from(mapCategories)
+  const catId = new Map(catRows.map((c) => [c.key, c.id]))
+  const featureRows = mapData.features.map(({ categoryKey, ...f }) => ({ ...f, categoryId: catId.get(categoryKey) ?? null }))
+  const mf = await db.insert(mapFeatures).values(featureRows as any).onConflictDoNothing().returning({ id: mapFeatures.id })
+  console.log(`• map_features: ${mf.length} inserted (${featureRows.length - mf.length} already present)`)
 
   const email = process.env.ADMIN_EMAIL?.trim().toLowerCase()
   const password = process.env.ADMIN_PASSWORD

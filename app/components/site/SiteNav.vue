@@ -25,6 +25,7 @@ const items = computed<NavItem[]>(() => [
     ],
   },
   { label: t('nav.ethnobiology'), to: localePath('/ethnobiology') },
+  { label: t('nav.map'), to: localePath('/map') },
   { label: t('nav.research'), to: localePath('/research-insights') },
   { label: t('nav.team'), to: localePath('/team') },
 ])
@@ -50,7 +51,7 @@ const isGroupActive = (item: NavItem) => item.children?.some((c) => route.path =
         </span>
       </NuxtLink>
 
-      <ul class="ml-auto hidden items-center gap-0.5 xl:flex">
+      <ul class="ml-auto hidden items-center gap-0.5 min-[1360px]:flex">
         <li
           v-for="(item, i) in items"
           :key="item.label"
@@ -77,7 +78,7 @@ const isGroupActive = (item: NavItem) => item.children?.some((c) => route.path =
         </li>
       </ul>
 
-      <div class="ml-auto flex items-center gap-2 xl:ml-2">
+      <div class="ml-auto flex items-center gap-2 min-[1360px]:ml-2">
         <NuxtLink :to="switchLocalePath(otherLocale)" class="locale-btn" :title="t('nav.switchTo')">
           <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10" /><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" /></svg>
           <span class="hidden sm:inline">{{ otherLabel }}</span>
@@ -86,7 +87,7 @@ const isGroupActive = (item: NavItem) => item.children?.some((c) => route.path =
         <NuxtLink :to="localePath('/contact')" class="btn-sprout-sm hidden md:inline-flex">{{ t('nav.contact') }}</NuxtLink>
         <button
           type="button"
-          class="inline-flex h-10 w-10 items-center justify-center rounded-full text-pure-white hover:text-electric-sprout xl:hidden"
+          class="inline-flex h-10 w-10 items-center justify-center rounded-full text-pure-white hover:text-electric-sprout min-[1360px]:hidden"
           :aria-label="t('nav.menu')"
           :aria-expanded="mobileOpen"
           @click="mobileOpen = !mobileOpen"
@@ -100,7 +101,7 @@ const isGroupActive = (item: NavItem) => item.children?.some((c) => route.path =
     <!-- Mobile drawer -->
     <div
       v-show="mobileOpen"
-      class="mx-auto mt-2 max-w-page rounded-card border border-onyx-olive bg-forest-depths p-4 shadow-pill-nav xl:hidden"
+      class="mx-auto mt-2 max-w-[1320px] rounded-card border border-onyx-olive bg-forest-depths p-4 shadow-pill-nav min-[1360px]:hidden"
     >
       <template v-for="item in items" :key="item.label">
         <NuxtLink v-if="item.to" :to="item.to" class="nav-menu-mobile">{{ item.label }}</NuxtLink>

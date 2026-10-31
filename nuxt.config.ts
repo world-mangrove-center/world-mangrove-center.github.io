@@ -41,6 +41,9 @@ export default defineNuxtConfig({
     },
     public: {
       siteUrl,
+      // Google Maps Platform key with the "Map Tiles API" enabled (restrict it to your domains).
+      // Set NUXT_PUBLIC_GOOGLE_MAPS_API_KEY. Without it the satellite layer falls back to Esri World Imagery.
+      googleMapsApiKey: '',
       contactEmail: 'contact@worldmangrovecenter.org',
     },
   },

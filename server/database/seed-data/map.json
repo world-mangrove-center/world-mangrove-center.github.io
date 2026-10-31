@@ -1,0 +1,484 @@
+{
+  "categories": [
+    {
+      "key": "conservation_area",
+      "nameEn": "Conservation area",
+      "nameId": "Kawasan konservasi",
+      "color": "#26a200",
+      "sortOrder": 10,
+      "visibleByDefault": true
+    },
+    {
+      "key": "restoration_site",
+      "nameEn": "Restoration site",
+      "nameId": "Lokasi restorasi",
+      "color": "#68ef3f",
+      "sortOrder": 20,
+      "visibleByDefault": true
+    },
+    {
+      "key": "monitoring_plot",
+      "nameEn": "Monitoring plot",
+      "nameId": "Petak pemantauan",
+      "color": "#f5c542",
+      "sortOrder": 30,
+      "visibleByDefault": true
+    },
+    {
+      "key": "research_station",
+      "nameEn": "Research station",
+      "nameId": "Stasiun riset",
+      "color": "#4fc3f7",
+      "sortOrder": 40,
+      "visibleByDefault": true
+    },
+    {
+      "key": "village",
+      "nameEn": "Indigenous village",
+      "nameId": "Kampung adat",
+      "color": "#ff9f6b",
+      "sortOrder": 50,
+      "visibleByDefault": true
+    },
+    {
+      "key": "ecotourism",
+      "nameEn": "Ecotourism",
+      "nameId": "Ekowisata",
+      "color": "#c792ea",
+      "sortOrder": 60,
+      "visibleByDefault": true
+    },
+    {
+      "key": "survey_route",
+      "nameEn": "Survey route",
+      "nameId": "Jalur survei",
+      "color": "#ff6b8a",
+      "sortOrder": 70,
+      "visibleByDefault": true
+    }
+  ],
+  "features": [
+    {
+      "slug": "cagar-alam-teluk-bintuni",
+      "categoryKey": "conservation_area",
+      "nameEn": "Teluk Bintuni Nature Reserve",
+      "nameId": "Cagar Alam Teluk Bintuni",
+      "descriptionEn": "Protected mangrove wetlands in the north-eastern part of Bintuni Bay — one of the largest intact mangrove systems in Asia-Pacific. (Sample data — illustrative location.)",
+      "descriptionId": "Lahan basah mangrove yang dilindungi di bagian timur laut Teluk Bintuni — salah satu sistem mangrove utuh terbesar di Asia-Pasifik. (Data contoh — lokasi ilustratif.)",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              133.58,
+              -2.13
+            ],
+            [
+              133.72,
+              -2.1
+            ],
+            [
+              133.88,
+              -2.16
+            ],
+            [
+              133.95,
+              -2.28
+            ],
+            [
+              133.9,
+              -2.42
+            ],
+            [
+              133.76,
+              -2.47
+            ],
+            [
+              133.64,
+              -2.4
+            ],
+            [
+              133.58,
+              -2.27
+            ],
+            [
+              133.58,
+              -2.13
+            ]
+          ]
+        ]
+      },
+      "areaHa": 124851,
+      "year": null,
+      "sortOrder": 10,
+      "published": true
+    },
+    {
+      "slug": "blok-restorasi-utara",
+      "categoryKey": "restoration_site",
+      "nameEn": "North Coast Restoration Block",
+      "nameId": "Blok Restorasi Pesisir Utara",
+      "descriptionEn": "Rhizophora and Bruguiera replanting on abandoned aquaculture ponds, co-managed with local clans. (Sample data — illustrative location.)",
+      "descriptionId": "Penanaman kembali Rhizophora dan Bruguiera di bekas tambak, dikelola bersama marga setempat. (Data contoh — lokasi ilustratif.)",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              133.585,
+              -2.075
+            ],
+            [
+              133.62,
+              -2.07
+            ],
+            [
+              133.628,
+              -2.095
+            ],
+            [
+              133.596,
+              -2.103
+            ],
+            [
+              133.585,
+              -2.075
+            ]
+          ]
+        ]
+      },
+      "areaHa": 420,
+      "year": 2019,
+      "sortOrder": 20,
+      "published": true
+    },
+    {
+      "slug": "blok-restorasi-babo",
+      "categoryKey": "restoration_site",
+      "nameEn": "Babo Coastal Restoration Block",
+      "nameId": "Blok Restorasi Pesisir Babo",
+      "descriptionEn": "Natural regeneration site with assisted propagule planting along the southern shore. (Sample data — illustrative location.)",
+      "descriptionId": "Lokasi regenerasi alami dengan bantuan penanaman propagul di pesisir selatan. (Data contoh — lokasi ilustratif.)",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              133.38,
+              -2.53
+            ],
+            [
+              133.405,
+              -2.525
+            ],
+            [
+              133.41,
+              -2.546
+            ],
+            [
+              133.386,
+              -2.551
+            ],
+            [
+              133.38,
+              -2.53
+            ]
+          ]
+        ]
+      },
+      "areaHa": 310,
+      "year": 2021,
+      "sortOrder": 30,
+      "published": true
+    },
+    {
+      "slug": "blok-restorasi-timur",
+      "categoryKey": "restoration_site",
+      "nameEn": "Eastern Estuary Restoration Block",
+      "nameId": "Blok Restorasi Muara Timur",
+      "descriptionEn": "Hydrological restoration of blocked tidal channels to reconnect mangrove stands. (Sample data — illustrative location.)",
+      "descriptionId": "Restorasi hidrologi saluran pasang surut yang tersumbat untuk menghubungkan kembali tegakan mangrove. (Data contoh — lokasi ilustratif.)",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              133.7,
+              -2.205
+            ],
+            [
+              133.735,
+              -2.2
+            ],
+            [
+              133.742,
+              -2.228
+            ],
+            [
+              133.708,
+              -2.235
+            ],
+            [
+              133.7,
+              -2.205
+            ]
+          ]
+        ]
+      },
+      "areaHa": 265,
+      "year": 2023,
+      "sortOrder": 40,
+      "published": true
+    },
+    {
+      "slug": "hub-bintuni-stasiun-lapangan",
+      "categoryKey": "research_station",
+      "nameEn": "Hub Bintuni Field Station",
+      "nameId": "Stasiun Lapangan Hub Bintuni",
+      "descriptionEn": "Base for field teams: herbarium, sediment lab and drone operations. (Sample data — illustrative location.)",
+      "descriptionId": "Basis tim lapangan: herbarium, laboratorium sedimen, dan operasi drone. (Data contoh — lokasi ilustratif.)",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          133.531,
+          -2.114
+        ]
+      },
+      "areaHa": null,
+      "year": null,
+      "sortOrder": 50,
+      "published": true
+    },
+    {
+      "slug": "petak-p01",
+      "categoryKey": "monitoring_plot",
+      "nameEn": "Permanent Plot P-01",
+      "nameId": "Petak Permanen P-01",
+      "descriptionEn": "20 × 50 m permanent vegetation plot: DBH, height, recruitment and sediment carbon measured yearly. (Sample data — illustrative location.)",
+      "descriptionId": "Petak vegetasi permanen 20 × 50 m: DBH, tinggi, rekrutmen, dan karbon sedimen diukur tiap tahun. (Data contoh — lokasi ilustratif.)",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          133.56,
+          -2.15
+        ]
+      },
+      "areaHa": 0.1,
+      "year": 2015,
+      "sortOrder": 60,
+      "published": true
+    },
+    {
+      "slug": "petak-p02",
+      "categoryKey": "monitoring_plot",
+      "nameEn": "Permanent Plot P-02",
+      "nameId": "Petak Permanen P-02",
+      "descriptionEn": "20 × 50 m permanent vegetation plot: DBH, height, recruitment and sediment carbon measured yearly. (Sample data — illustrative location.)",
+      "descriptionId": "Petak vegetasi permanen 20 × 50 m: DBH, tinggi, rekrutmen, dan karbon sedimen diukur tiap tahun. (Data contoh — lokasi ilustratif.)",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          133.63,
+          -2.19
+        ]
+      },
+      "areaHa": 0.1,
+      "year": 2016,
+      "sortOrder": 70,
+      "published": true
+    },
+    {
+      "slug": "petak-p03",
+      "categoryKey": "monitoring_plot",
+      "nameEn": "Permanent Plot P-03",
+      "nameId": "Petak Permanen P-03",
+      "descriptionEn": "20 × 50 m permanent vegetation plot: DBH, height, recruitment and sediment carbon measured yearly. (Sample data — illustrative location.)",
+      "descriptionId": "Petak vegetasi permanen 20 × 50 m: DBH, tinggi, rekrutmen, dan karbon sedimen diukur tiap tahun. (Data contoh — lokasi ilustratif.)",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          133.7,
+          -2.232
+        ]
+      },
+      "areaHa": 0.1,
+      "year": 2017,
+      "sortOrder": 80,
+      "published": true
+    },
+    {
+      "slug": "petak-p04",
+      "categoryKey": "monitoring_plot",
+      "nameEn": "Permanent Plot P-04",
+      "nameId": "Petak Permanen P-04",
+      "descriptionEn": "20 × 50 m permanent vegetation plot: DBH, height, recruitment and sediment carbon measured yearly. (Sample data — illustrative location.)",
+      "descriptionId": "Petak vegetasi permanen 20 × 50 m: DBH, tinggi, rekrutmen, dan karbon sedimen diukur tiap tahun. (Data contoh — lokasi ilustratif.)",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          133.78,
+          -2.3
+        ]
+      },
+      "areaHa": 0.1,
+      "year": 2018,
+      "sortOrder": 90,
+      "published": true
+    },
+    {
+      "slug": "petak-p05",
+      "categoryKey": "monitoring_plot",
+      "nameEn": "Permanent Plot P-05",
+      "nameId": "Petak Permanen P-05",
+      "descriptionEn": "20 × 50 m permanent vegetation plot: DBH, height, recruitment and sediment carbon measured yearly. (Sample data — illustrative location.)",
+      "descriptionId": "Petak vegetasi permanen 20 × 50 m: DBH, tinggi, rekrutmen, dan karbon sedimen diukur tiap tahun. (Data contoh — lokasi ilustratif.)",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          133.47,
+          -2.52
+        ]
+      },
+      "areaHa": 0.1,
+      "year": 2019,
+      "sortOrder": 100,
+      "published": true
+    },
+    {
+      "slug": "petak-p06",
+      "categoryKey": "monitoring_plot",
+      "nameEn": "Permanent Plot P-06",
+      "nameId": "Petak Permanen P-06",
+      "descriptionEn": "20 × 50 m permanent vegetation plot: DBH, height, recruitment and sediment carbon measured yearly. (Sample data — illustrative location.)",
+      "descriptionId": "Petak vegetasi permanen 20 × 50 m: DBH, tinggi, rekrutmen, dan karbon sedimen diukur tiap tahun. (Data contoh — lokasi ilustratif.)",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          133.35,
+          -2.47
+        ]
+      },
+      "areaHa": 0.1,
+      "year": 2020,
+      "sortOrder": 110,
+      "published": true
+    },
+    {
+      "slug": "kampung-bintuni",
+      "categoryKey": "village",
+      "nameEn": "Bintuni",
+      "nameId": "Bintuni",
+      "descriptionEn": "Regency capital and main logistics hub for the programme. (Sample data — illustrative location.)",
+      "descriptionId": "Ibu kota kabupaten dan pusat logistik utama program. (Data contoh — lokasi ilustratif.)",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          133.5246,
+          -2.1097
+        ]
+      },
+      "areaHa": null,
+      "year": null,
+      "sortOrder": 120,
+      "published": true
+    },
+    {
+      "slug": "kampung-babo",
+      "categoryKey": "village",
+      "nameEn": "Babo",
+      "nameId": "Babo",
+      "descriptionEn": "Coastal district on the southern shore; partner community for the Babo restoration block. (Sample data — illustrative location.)",
+      "descriptionId": "Distrik pesisir di pantai selatan; komunitas mitra untuk blok restorasi Babo. (Data contoh — lokasi ilustratif.)",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          133.4167,
+          -2.55
+        ]
+      },
+      "areaHa": null,
+      "year": null,
+      "sortOrder": 130,
+      "published": true
+    },
+    {
+      "slug": "jalan-papan-mangrove",
+      "categoryKey": "ecotourism",
+      "nameEn": "Mangrove Boardwalk",
+      "nameId": "Jalan Papan Mangrove",
+      "descriptionEn": "Community-run boardwalk and interpretation trail through a mature Rhizophora stand. (Sample data — illustrative location.)",
+      "descriptionId": "Jalur papan dan interpretasi yang dikelola masyarakat melalui tegakan Rhizophora dewasa. (Data contoh — lokasi ilustratif.)",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          133.505,
+          -2.122
+        ]
+      },
+      "areaHa": null,
+      "year": null,
+      "sortOrder": 140,
+      "published": true
+    },
+    {
+      "slug": "titik-pengamatan-burung",
+      "categoryKey": "ecotourism",
+      "nameEn": "Birdwatching Point",
+      "nameId": "Titik Pengamatan Burung",
+      "descriptionEn": "Viewing platform for milky stork and migratory shorebirds at low tide. (Sample data — illustrative location.)",
+      "descriptionId": "Menara pengamatan bangau susu dan burung pantai migran saat surut. (Data contoh — lokasi ilustratif.)",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          133.66,
+          -2.16
+        ]
+      },
+      "areaHa": null,
+      "year": null,
+      "sortOrder": 150,
+      "published": true
+    },
+    {
+      "slug": "jalur-survei-sungai-utama",
+      "categoryKey": "survey_route",
+      "nameEn": "Main Estuary Survey Transect",
+      "nameId": "Transek Survei Muara Utama",
+      "descriptionEn": "Boat transect used for water-quality, fish and bird surveys every quarter. (Sample data — illustrative location.)",
+      "descriptionId": "Transek perahu untuk survei kualitas air, ikan, dan burung setiap triwulan. (Data contoh — lokasi ilustratif.)",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            133.531,
+            -2.118
+          ],
+          [
+            133.57,
+            -2.15
+          ],
+          [
+            133.62,
+            -2.185
+          ],
+          [
+            133.68,
+            -2.22
+          ],
+          [
+            133.75,
+            -2.27
+          ],
+          [
+            133.8,
+            -2.31
+          ]
+        ]
+      },
+      "areaHa": null,
+      "year": null,
+      "sortOrder": 160,
+      "published": true
+    }
+  ]
+}

@@ -28,6 +28,8 @@ design.md            Sistem desain (palet "Tomorro" hijau hutan)
 | `metrics` | Angka "Impact & Scale" + statistik mitra | `/admin/metrics` |
 | `contact_messages` | Kiriman formulir `/contact` | `/admin/messages` |
 | `data_requests` | Permintaan akses data dari halaman Research | `/admin/data-requests` |
+| `map_categories` | Kategori/legenda peta + warna | `/admin/map-categories` |
+| `map_features` | Titik, garis, area peta (GeoJSON) | `/admin/map` |
 | `admin_users` | Akun admin (password di-hash scrypt) | lewat `npm run db:seed` |
 
 ## Pengembangan lokal
@@ -61,6 +63,16 @@ Mengubah skema: edit `server/database/schema.ts` → `npm run db:generate` → c
 Setiap push ke `main` = deploy produksi; setiap pull request = Preview Deployment. Workflow `.github/workflows/ci.yml` menguji build + migrasi di Postgres sementara.
 
 > Situs lama di GitHub Pages: workflow Pages sudah dihapus. Matikan juga di GitHub → *Settings → Pages* (Source: *None*) supaya `world-mangrove-center.github.io` tidak menayangkan versi lama. Bila ingin alamat itu tetap hidup, buat repo kecil berisi redirect ke domain Vercel.
+
+## Peta (`/map`)
+
+Peta interaktif Leaflet dengan dua basemap: **OpenStreetMap** dan **Google Satellite**.
+
+- Google Satellite memakai **Map Tiles API** resmi (session token + `tile.googleapis.com/v1/2dtiles`). URL tile Google tanpa API key (`mt1.google.com/vt/lyrs=s…`) melanggar ketentuan layanan Google, jadi tidak dipakai.
+- Cara mengaktifkan: Google Cloud Console → aktifkan **Map Tiles API** (billing wajib aktif; ada kuota gratis bulanan) → buat API key → batasi ke *HTTP referrers* domain Anda (+ `localhost:3000`) dan ke Map Tiles API → isi `NUXT_PUBLIC_GOOGLE_MAPS_API_KEY` di `.env` dan Vercel → Redeploy.
+- Tanpa key, layer satelit otomatis memakai Esri World Imagery.
+- Data dikelola di `/admin/map`: gambar titik/garis/poligon langsung di peta, isi lintang/bujur, atau tempel GeoJSON (mis. ekspor QGIS, EPSG:4326). Tautan langsung ke satu lokasi: `/map?f=<slug>`.
+- Data awal adalah **data contoh** di sekitar Teluk Bintuni (koordinat ilustratif). Ganti/hapus lewat admin setelah data lapangan tersedia.
 
 ## Catatan
 

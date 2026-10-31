@@ -47,3 +47,40 @@ export interface PublicMetric {
   labelId: string
   icon: string | null
 }
+
+export type GeoJsonGeometry =
+  | { type: 'Point'; coordinates: [number, number] }
+  | { type: 'LineString'; coordinates: [number, number][] }
+  | { type: 'Polygon'; coordinates: [number, number][][] }
+  | { type: 'MultiPolygon'; coordinates: [number, number][][][] }
+
+export interface PublicMapCategory {
+  id: number
+  key: string
+  nameEn: string
+  nameId: string
+  color: string
+  visibleByDefault: boolean
+}
+
+export interface PublicMapFeature {
+  type: 'Feature'
+  id: number
+  geometry: GeoJsonGeometry
+  properties: {
+    slug: string
+    categoryId: number | null
+    nameEn: string
+    nameId: string
+    descriptionEn: string
+    descriptionId: string
+    areaHa: number | null
+    year: number | null
+    imageUrl: string | null
+  }
+}
+
+export interface PublicMapData {
+  categories: PublicMapCategory[]
+  features: { type: 'FeatureCollection'; features: PublicMapFeature[] }
+}

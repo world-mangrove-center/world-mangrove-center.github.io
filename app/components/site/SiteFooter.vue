@@ -25,6 +25,7 @@ const year = new Date().getFullYear()
           <li><NuxtLink :to="localePath('/biology/fauna-aquatic')" class="footer-link">{{ t('nav.fauna') }}</NuxtLink></li>
           <li><NuxtLink :to="localePath('/ntfp-ecotourism')" class="footer-link">{{ t('nav.ntfp') }}</NuxtLink></li>
           <li><NuxtLink :to="localePath('/ethnobiology')" class="footer-link">{{ t('nav.ethnobiology') }}</NuxtLink></li>
+          <li><NuxtLink :to="localePath('/map')" class="footer-link">{{ t('nav.map') }}</NuxtLink></li>
         </ul>
       </div>
       <div class="md:col-span-4">

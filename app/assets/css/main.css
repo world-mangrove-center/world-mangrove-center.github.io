@@ -626,13 +626,13 @@
     @apply fixed inset-x-0 top-0 z-50 px-4 pt-4 md:px-6 md:pt-6;
   }
   .site-nav-pill {
-    @apply mx-auto flex max-w-page items-center gap-4 rounded-nav border border-moss-shadow px-4 py-2.5 shadow-pill-nav;
+    @apply mx-auto flex max-w-[1320px] items-center gap-3 rounded-nav border border-moss-shadow px-4 py-2.5 shadow-pill-nav;
     background-color: rgba(48, 50, 42, 0.94);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
   }
   .nav-link {
-    @apply inline-flex items-center gap-1 whitespace-nowrap rounded-lg px-2.5 py-2 text-body font-medium text-pale-fern transition-colors duration-fast hover:text-pure-white;
+    @apply inline-flex items-center gap-1 whitespace-nowrap rounded-lg px-2 py-2 text-body font-medium text-pale-fern transition-colors duration-fast hover:text-pure-white;
   }
   .nav-link.router-link-active,
   .nav-link.is-active {
