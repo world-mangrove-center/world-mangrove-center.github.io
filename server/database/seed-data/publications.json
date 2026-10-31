@@ -1,0 +1,122 @@
+[
+  {
+    "slug": "p1",
+    "type": "paper",
+    "titleEn": "Carbon Sequestration Dynamics of Rhizophora apiculata Stands in Bintuni Bay Estuaries",
+    "titleId": "Dinamika Penyerapan Karbon Tegakan Rhizophora apiculata di Muara Teluk Bintuni",
+    "abstractEn": "This study quantifies above-ground and below-ground carbon stocks across 36 permanent monitoring plots in Teluk Bintuni, finding mean sequestration rates of 328 Mg C ha⁻¹ for mature stands — significantly exceeding global mangrove averages.",
+    "abstractId": "Penelitian ini mengukur stok karbon atas dan bawah permukaan di 36 petak pemantauan permanen di Teluk Bintuni, menemukan rata-rata laju penyerapan 328 Mg C ha⁻¹ untuk tegakan dewasa — jauh melampaui rata-rata mangrove global.",
+    "authors": "Nurhalimah, S., Tambunan, M., Kwai, W.",
+    "publishedOn": "2026-05-12",
+    "fileSize": "4.2 MB",
+    "pages": "38 pp.",
+    "tags": [
+      "Blue Carbon",
+      "Rhizophora",
+      "Soil Science"
+    ],
+    "imageUrl": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Soil%20corer%20sampling%20mangrove%20peat%20sediment%20for%20blue%20carbon%20analysis%2C%20researcher%20kneeling%20in%20mud%20among%20mangrove%20prop%20roots%2C%20field%20equipment%2C%20plastic%20sample%20bags%2C%20low%20tide%20tropical%20light&image_size=square",
+    "fileUrl": null,
+    "sortOrder": 10
+  },
+  {
+    "slug": "p2",
+    "type": "report",
+    "titleEn": "Baseline Biodiversity Survey: Teluk Bintuni Mangrove Ramsar Nomination Technical Dossier",
+    "titleId": "Survei Baseline Keanekaragaman Hayati: Dokumen Teknis Nominasi Ramsar Mangrove Teluk Bintuni",
+    "abstractEn": "Comprehensive 18-month baseline survey documenting 34 mangrove species, 284 fish species, 127 avian species (including 3 IUCN Red List Critically Endangered taxa), and 89 benthic macrofauna morphospecies across the proposed 125,000 Ha Ramsar boundary.",
+    "abstractId": "Survei baseline komprehensif selama 18 bulan yang mendokumentasikan 34 spesies mangrove, 284 spesies ikan, 127 spesies burung (termasuk 3 takson Kritis Daftar Merah IUCN), dan 89 morfospesies makrofauna bentik di seluruh batas Ramsar 125.000 Ha yang diusulkan.",
+    "authors": "World Mangrove Center Research Team",
+    "publishedOn": "2026-03-28",
+    "fileSize": "18.6 MB",
+    "pages": "242 pp.",
+    "tags": [
+      "Ramsar",
+      "Biodiversity",
+      "Baseline"
+    ],
+    "imageUrl": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Aerial%20flyover%20survey%20boat%20mapping%20vast%20mangrove%20channels%20Bintuni%20Bay%2C%20bird%20watchers%20with%20binoculars%20on%20deck%2C%20drone%20flying%20above%2C%20expansive%20green%20forest%20and%20estuaries%20Papua&image_size=square",
+    "fileUrl": null,
+    "sortOrder": 20
+  },
+  {
+    "slug": "p3",
+    "type": "data",
+    "titleEn": "Long-Term Vegetation Plot Data: 12 Years of Mangrove Restoration Monitoring",
+    "titleId": "Data Petak Vegetasi Jangka Panjang: 12 Tahun Pemantauan Restorasi Mangrove",
+    "abstractEn": "Open-access CSV dataset containing annual diameter-at-breast-height (DBH), height, mortality, and recruitment data for 14,400 tagged trees across 24 restoration chronosequence plots established between 2014 and 2026. Includes sediment redox potential and porewater salinity readings.",
+    "abstractId": "Dataset CSV akses terbuka yang berisi data tahunan diameter setinggi dada (DBH), tinggi, mortalitas, dan rekrutmen untuk 14.400 pohon bertag di 24 petak kronosekuens restorasi yang didirikan antara 2014 dan 2026. Termasuk pembacaan potensial redoks sedimen dan salinitas air pori.",
+    "authors": "Saputro, E., Nurhalimah, S.",
+    "publishedOn": "2026-06-18",
+    "fileSize": "22.1 MB",
+    "pages": null,
+    "tags": [
+      "Open Data",
+      "Vegetation",
+      "Time-Series"
+    ],
+    "imageUrl": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Community%20ranger%20measuring%20mangrove%20tree%20trunk%20DBH%20diameter%20with%20measuring%20tape%20in%20dense%20restoration%20site%2C%20clipboard%20with%20data%20sheets%2C%20sunlight%20through%20mangrove%20canopy&image_size=square",
+    "fileUrl": null,
+    "sortOrder": 30
+  },
+  {
+    "slug": "p4",
+    "type": "paper",
+    "titleEn": "Mothers of the Mangrove: Women's Cooperatives and NTFP Value Chain Integration in Coastal Papua",
+    "titleId": "Ibu-Ibu Mangrove: Koperasi Perempuan dan Integrasi Rantai Nilai HHBK di Pesisir Papua",
+    "abstractEn": "Mixed-methods socio-economic analysis of five women-led NTFP cooperatives, documenting 47% increase in average household income within 18 months of Fair Trade certification integration, with 89% of participants reporting increased decision-making autonomy.",
+    "abstractId": "Analisis sosio-ekonomi metode campuran dari lima koperasi HHBK yang dipimpin perempuan, mendokumentasikan peningkatan 47% rata-rata pendapatan rumah tangga dalam 18 bulan setelah integrasi sertifikasi Perdagangan Adil, dengan 89% peserta melaporkan peningkatan otonomi pengambilan keputusan.",
+    "authors": "Maramatua, D., Kwai, W., Anggraini, R.",
+    "publishedOn": "2026-04-03",
+    "fileSize": "3.8 MB",
+    "pages": "29 pp.",
+    "tags": [
+      "Gender",
+      "NTFP",
+      "Socio-Economics"
+    ],
+    "imageUrl": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Indonesian%20women%20in%20colorful%20headscarves%20processing%20Nypa%20palm%20sugar%20in%20traditional%20cooperative%20kitchen%2C%20large%20wok%20pans%20steaming%2C%20packaged%20mangrove%20products%20on%20table%2C%20Papua&image_size=square",
+    "fileUrl": null,
+    "sortOrder": 40
+  },
+  {
+    "slug": "p5",
+    "type": "paper",
+    "titleEn": "Milky Stork (Mycteria cinerea) Population Viability Analysis: Bintuni Bay as a Critical Refugium",
+    "titleId": "Analisis Viabilitas Populasi Bangau Susu (Mycteria cinerea): Teluk Bintuni sebagai Refugium Kritis",
+    "abstractEn": "First population viability analysis (PVA) for Indonesia's second-largest breeding colony of Mycteria cinerea, estimating 462 breeding pairs and projecting 0.89 probability of population persistence over 100 years under current protection scenarios.",
+    "abstractId": "Analisis viabilitas populasi (PVA) pertama untuk koloni pembiakan terbesar kedua Mycteria cinerea di Indonesia, memperkirakan 462 pasangan pembiakan dan memproyeksikan probabilitas 0,89 kelestarian populasi selama 100 tahun di bawah skenario perlindungan saat ini.",
+    "authors": "Anggraini, R., Ngga, M.",
+    "publishedOn": "2026-07-09",
+    "fileSize": "5.1 MB",
+    "pages": "22 pp.",
+    "tags": [
+      "Ornithology",
+      "PVA",
+      "IUCN Red List"
+    ],
+    "imageUrl": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Milky%20Stork%20Mycteria%20cinerea%20large%20white%20bird%20with%20yellow%20beak%20perched%20on%20mangrove%20branch%20at%20sunset%2C%20other%20storks%20nesting%20in%20background%20colony%2C%20Teluk%20Bintuni&image_size=square",
+    "fileUrl": null,
+    "sortOrder": 50
+  },
+  {
+    "slug": "p6",
+    "type": "report",
+    "titleEn": "Traditional Ecological Knowledge Compendium: Mairasi and Irarutu Tribal Ethnomangrove Knowledge",
+    "titleId": "Kompilasi Pengetahuan Ekologi Tradisional: Pengetahuan Etnomangrove Suku Mairasi dan Irarutu",
+    "abstractEn": "312-page biocultural knowledge compendium documenting 147 plant-use categories, 28 traditional management protocols, and 64 medicinal preparation recipes as transmitted by 23 elder knowledge holders across four Teluk Bintuni villages. Includes bilingual glossary (Bahasa/English).",
+    "abstractId": "Kompilasi pengetahuan biokultural 312 halaman yang mendokumentasikan 147 kategori kegunaan tanaman, 28 protokol pengelolaan tradisional, dan 64 resep olahan obat sebagaimana ditransmisikan oleh 23 tetua pemegang pengetahuan di empat desa Teluk Bintuni. Termasuk glosarium dwibahasa (Bahasa/Inggris).",
+    "authors": "Kwai, W., Wanda, B., Community Knowledge Curation Circle",
+    "publishedOn": "2026-02-14",
+    "fileSize": "42.7 MB",
+    "pages": "312 pp.",
+    "tags": [
+      "Ethnobiology",
+      "TEK",
+      "Biocultural"
+    ],
+    "imageUrl": "https://coresg-normal.trae.ai/api/ide/v1/text_to_image?prompt=Papuan%20elder%20with%20cassowary%20bone%20nose%20piercing%20holding%20and%20pointing%20out%20medicinal%20mangrove%20plant%20species%2C%20ethnobotanical%20fieldwork%20in%20dense%20green%20coastal%20forest%2C%20sunlight%20through%20leaves&image_size=square",
+    "fileUrl": null,
+    "sortOrder": 60
+  }
+]
